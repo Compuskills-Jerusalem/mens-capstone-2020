@@ -3,7 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Mens2020.DataSource;
+
+
 
 namespace Mens2020.Mvc.Models
 {
@@ -21,14 +22,14 @@ namespace Mens2020.Mvc.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+        public ApplicationDbContext(string nameOrConnectionstring) : base(nameOrConnectionstring)
         {
+
         }
 
         public static ApplicationDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new ApplicationDbContext(nameof(ApplicationDbContext));
         }
     }
 }

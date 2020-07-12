@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Mens2020.DataSource.DataSource
 {
-    class LoginSignupContext : IdentityDbContext
+    class Capstone2020Context : IdentityDbContext
     {
         
     }
