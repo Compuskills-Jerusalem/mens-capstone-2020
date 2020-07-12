@@ -61,6 +61,13 @@ namespace Mens2020.Mvc.Controllers
             return View();
         }
 
+               
+        [AllowAnonymous]
+        public ActionResult AddMentor()
+        {
+            return View();
+        }
+
         //
         // POST: /Account/Login
         [HttpPost]
