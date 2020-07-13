@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "CreateGuided";
+}
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="~/Content/MyStyleSheet.css">
+
+    <script>
+        window.addEventListener("load", function () {
+            document.querySelector("form.goalInput").addEventListener("submit", function (e) {
+                var txt = document.querySelector("[name=goal]").value;
+                document.querySelector("#Goal").innerHTML = txt;
+                document.querySelector("form.stepInput").style.display = "block";
+                document.querySelector("form.goalInput").style.display = "none";
+                document.querySelector("div.showGoal").style.display = "block";
+
+                e.preventDefault();
+            });
+
+        });
+        window.addEventListener("load", function () {
+            document.querySelector("form.stepInput").addEventListener("submit", function (e) {
+                var txt = document.querySelector("[name=step]").value;
+                document.querySelector("#Step").innerHTML = txt;
+                document.querySelector("form.actionInput").style.display = "block";
+                document.querySelector("form.stepInput").style.display = "none";
+                document.querySelector("div.showStep").style.display = "block";
+
+                e.preventDefault();
+            });
+        });
+
+        window.addEventListener("load", function () {
+            document.querySelector("form.actionInput").addEventListener("submit", function (e) {
+                var txt = document.querySelector("[name=action]").value;
+                document.querySelector("#Action").innerHTML = txt;
+                document.querySelector("div").style.display = "block";
+                document.querySelector("form.actionInput").style.display = "none";
+                document.querySelector("div.showAction").style.display = "block";
+                document.querySelector(".showSavediv").style.display = "block";
+                var x, i;
+                x = document.querySelectorAll("button");
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.display = "inline-block";
+                }
+
+                e.preventDefault();
+            });
+        });
+        function addStep() {
+            document.querySelector(".showAction").style.display = "none";
+            document.querySelector(".showStep").style.display = "none";
+            document.querySelector(".showSavediv").style.display = "none";
+            document.querySelector(".newStep").style.display = "block";
+        }
+
+    </script>
+}
+
+<h2>CreateGuided</h2>
+
+<div>
+    <div class="showGoal" style="display:none">
+        <text>GOAL: <span id="Goal"></span></text>
+    </div>
+    <div class="showStep" style="display:none">
+        <text>STEP: <span id="Step"></span></text>
+        <button onclick="addStep()">Add another?</button>
+    </div>
+    <div class="showAction" style="display:none">
+        <text>ACTION: <span id="Action"></span></text>
+        <button>Add another?</button>
+    </div>
+    <div class="showSavediv" style="display:none; margin-top:40px">
+        <label>Do You Want To Review Your Goal?</label>
+        <button>Yes</button>
+        <button>Clear</button>
+    </div>
+</div>
+<form class="goalInput">
+    <h1>What is your GOAL?</h1>
+    <input name="goal" type="text" />
+    <button></button>
+</form>
+
+<form class="stepInput" style="display:none">
+    <h1>What STEP will help you to achieve your GOAL?</h1>
+    <input type="text" name="step" />
+    <button></button>
+</form>
+
+<form class="actionInput" style="display:none">
+    <h1>What ACTION will you need to do to complete your STEP?</h1>
+    <input type="text" name="action" />
+    <button></button>
+</form>
+<form class="newStep" style="display:none">
+    <h1>What New STEP will help you to achieve your GOAL?</h1>
+    <input />
+</form>

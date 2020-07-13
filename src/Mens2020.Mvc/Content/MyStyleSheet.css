@@ -1,0 +1,33 @@
+﻿body {
+    background-color: burlywood;
+}
+text {
+    font-size: 60px;
+    font-weight: bolder;
+    position: center;
+    text-align: center;
+}
+form {
+    background-color: blanchedalmond;
+    border: solid;
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -250px;
+}
+input {
+    margin-bottom: 2em;
+    margin-left: 150px;
+}
+h1 {
+    text-align: center;
+}
+div {
+    text-align: center;
+    margin-top: 30px;
+}
+button {
+    display: none;
+    background-color:salmon;
+}

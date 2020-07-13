@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "CreateQuick";
+}
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="~/Content/MyStyleSheet.css">
+    <style>
+        button {
+            display: inline-block
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            document.querySelector("form").addEventListener("submit", function (e) {
+                var txt = document.querySelector("[name=Goal]").value;
+                document.querySelector("#Goal").innerHTML = txt;
+                document.querySelector("div").style.display = "block";
+                document.querySelector("form").style.display = "none";
+
+                e.preventDefault();
+            });
+        });
+    </script>
+}
+
+<h2>CreateQuick</h2>
+
+<form>
+    <h1>What GOAL Do You Want To Accomplish?</h1>
+    <input name="Goal" type="text" />
+    <button style="display:none"></button>
+</form>
+<div style="display:none">
+    <div style="margin-top:200px">
+        <text>GOAL: <span id="Goal"></span></text>
+    </div>
+    <div>
+        <label>Do You Want To Review Your Goal?</label>
+        <button>Yes</button>
+        <button>Clear</button>
+    </div>
+</div>
