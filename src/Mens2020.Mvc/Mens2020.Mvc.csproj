@@ -179,9 +179,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\GoalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\_GoalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,13 +266,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\AddMentor.cshtml" />
-    <Content Include="Views\Goal\CreateQuick.cshtml" />
-    <Content Include="Views\Goal\CreateGuided.cshtml" />
-    <Content Include="Views\Goal\ChooseCreateType.cshtml" />
+    <Content Include="Views\_Goal\CreateQuick.cshtml" />
+    <Content Include="Views\_Goal\CreateGuided.cshtml" />
+    <Content Include="Views\_Goal\ChooseCreateType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Goal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
