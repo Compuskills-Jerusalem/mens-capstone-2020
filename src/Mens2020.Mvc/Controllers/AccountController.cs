@@ -79,7 +79,7 @@ namespace Mens2020.Mvc.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return Redirect("http://www.google.com");
+                    return RedirectToAction("Index", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
