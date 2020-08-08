@@ -4,19 +4,23 @@
 }
 
 @section scripts{
-    <link rel="stylesheet" type="text/css" href="~/Content/MyStyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
+
     <style>
+
         button {
             display: inline-block
         }
+
     </style>
     <script>
         window.addEventListener("load", function () {
             document.querySelector("form").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=Goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
-                document.querySelector("div").style.display = "block";
-                document.querySelector("form").style.display = "none";
+                document.querySelector("#ShowGoal").style.display = "block";
+                document.querySelector("#goalInput").style.display = "none";
 
                 e.preventDefault();
             });
@@ -26,18 +30,22 @@
 
 <h2>CreateQuick</h2>
 
-<form>
+<form id="goalInput">
     <h1>What GOAL Do You Want To Accomplish?</h1>
     <input name="Goal" type="text" />
     <button style="display:none"></button>
 </form>
-<div style="display:none">
+<div id="ShowGoal"style="display:none">
     <div style="margin-top:200px">
         <text>GOAL: <span id="Goal"></span></text>
     </div>
     <div>
-        <label>Do You Want To Review Your Goal?</label>
-        <button>Yes</button>
-        <button>Clear</button>
+        <label>Do You Want To Save Your Goal?</label>
+        <div>
+            <button>Yes</button>
+            <button>Clear</button>
+            <button>Add Step</button>
+            <button>Add Action</button>
+        </div>
     </div>
 </div>
