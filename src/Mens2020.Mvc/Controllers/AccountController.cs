@@ -61,8 +61,6 @@ namespace Mens2020.Mvc.Controllers
             return View();
         }
 
-       
-
         //
         // POST: /Account/Login
         [HttpPost]

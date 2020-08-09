@@ -6,19 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link rel="stylesheet" type="text/css" href="~/Content/MyStyleSheet.css">
-
-    <script>
-        window.addEventListener("load", function () {
-            document.querySelector("div.sidebar").addEventListener("mouseover", function (e) {
-                $(".container-sidebar-and-body").toggleClass("sidebar-open")
-            });
-        });
-
-    </script>
 
 </head>
-<body class="container-sidebar-and-body">
+<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -39,22 +29,20 @@
             </div>
         </div>
     </div>
-    
-        <div class="sidebar">
-            THIS IS JUST FOR REFERANCE! needs code put in!
-            <div style="height:20%"><h1>goals</h1></div>
-            <div style="height:20%"><h1>steps</h1></div>
-            <div style="height:20%"><h1>actions</h1></div>
-        </div>
-        <div class="body-container" style="background-color: #fbe8a6;">
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                </footer>
-            </div>
-        </div>
+    <div class="sidebar" style="position:absolute; top:50px; left:0px; bottom:0px; width:10vw; border:solid;">
+        THIS IS JUST FOR REFERANCE! needs code put in!
+        <div style="height:30%"><h1>goals</h1></div>
+        <div style="height:30%"><h1>steps</h1></div>
+        <div style="height:30%"><h1>actions</h1></div>
+    </div>
+
+    <div class="container body-content" style="position:absolute; left:10%; right:10%; top:50px">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

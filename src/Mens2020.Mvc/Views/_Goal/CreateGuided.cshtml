@@ -4,53 +4,41 @@
 }
 
 @section scripts{
-    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
-
-    <style>
-        input {
-            margin-bottom: 2em;
-            margin-left: 150px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="~/Content/MyStyleSheet.css">
 
     <script>
         window.addEventListener("load", function () {
-            document.querySelector("#goalInput").addEventListener("submit", function (e) {
+            document.querySelector("form.goalInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
-                document.querySelector("#stepInput").style.display = "block";
-                document.querySelector("#goalInput").style.display = "none";
-                document.querySelector("#showGoal").style.display = "block";
+                document.querySelector("form.stepInput").style.display = "block";
+                document.querySelector("form.goalInput").style.display = "none";
+                document.querySelector("div.showGoal").style.display = "block";
 
                 e.preventDefault();
             });
 
         });
         window.addEventListener("load", function () {
-            document.querySelector("#stepInput").addEventListener("submit", function (e) {
+            document.querySelector("form.stepInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=step]").value;
                 document.querySelector("#Step").innerHTML = txt;
-                document.querySelector("#actionInput").style.display = "block";
-                document.querySelector("#stepInput").style.display = "none";
-                document.querySelector("#showStep").style.display = "block";
+                document.querySelector("form.actionInput").style.display = "block";
+                document.querySelector("form.stepInput").style.display = "none";
+                document.querySelector("div.showStep").style.display = "block";
 
                 e.preventDefault();
             });
         });
 
         window.addEventListener("load", function () {
-            document.querySelector("#actionInput").addEventListener("submit", function (e) {
+            document.querySelector("form.actionInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=action]").value;
                 document.querySelector("#Action").innerHTML = txt;
                 document.querySelector("div").style.display = "block";
-                document.querySelector("#actionInput").style.display = "none";
-                document.querySelector("#showAction").style.display = "block";
-                document.querySelector("#reviewGoal").style.display = "block";
+                document.querySelector("form.actionInput").style.display = "none";
+                document.querySelector("div.showAction").style.display = "block";
+                document.querySelector(".showSavediv").style.display = "block";
                 var x, i;
                 x = document.querySelectorAll("button");
                 for (var i = 0; i < x.length; i++) {
@@ -60,54 +48,54 @@
                 e.preventDefault();
             });
         });
-       //     function addStep() {
-       //         document.querySelector(".showAction").style.display = "none";
-       //         document.querySelector(".showStep").style.display = "none";
-       //         document.querySelector(".showSavediv").style.display = "none";
-       //        document.querySelector(".newStep").style.display = "block";
-       //     }
+        function addStep() {
+            document.querySelector(".showAction").style.display = "none";
+            document.querySelector(".showStep").style.display = "none";
+            document.querySelector(".showSavediv").style.display = "none";
+            document.querySelector(".newStep").style.display = "block";
+        }
 
     </script>
 }
 
 <h2>CreateGuided</h2>
 
-<div class="goalPages-text ">
-    <div id="showGoal" style="display:none">
+<div>
+    <div class="showGoal" style="display:none">
         <text>GOAL: <span id="Goal"></span></text>
     </div>
-    <div id="showStep" style="display:none">
+    <div class="showStep" style="display:none">
         <text>STEP: <span id="Step"></span></text>
+        <button onclick="addStep()">Add another?</button>
     </div>
-    <div id="showAction" style="display:none">
+    <div class="showAction" style="display:none">
         <text>ACTION: <span id="Action"></span></text>
+        <button>Add another?</button>
     </div>
-    <div id="reviewGoal" style="display:none; margin-top:40px">
-        <label>Do You Want To Save Your Goal?</label>
-        <div>
-            <button>Yes</button>
-            <button>Clear</button>
-            <button>Add Step</button>
-            <button>Add Action</button>
-        </div>
+    <div class="showSavediv" style="display:none; margin-top:40px">
+        <label>Do You Want To Review Your Goal?</label>
+        <button>Yes</button>
+        <button>Clear</button>
     </div>
 </div>
-<div>
-    <form id="goalInput" class="goalpages-form">
-        <h1>What is your GOAL?</h1>
-        <input name="goal" type="text" />
-        <button class="submit-by-enter"></button>
-    </form>
-    <form id="stepInput" class="goalpages-form " style="display:none">
-        <h1>What STEP will help you to achieve your GOAL?</h1>
-        <input type="text" name="step" />
-        <button class="submit-by-enter"></button>
-    </form>
+<form class="goalInput">
+    <h1>What is your GOAL?</h1>
+    <input name="goal" type="text" />
+    <button></button>
+</form>
 
-    <form id="actionInput" class="goalpages-form" style="display:none">
-        <h1>What ACTION will you need to do to complete your STEP?</h1>
-        <input type="text" name="action" />
-        <button class="submit-by-enter"></button>
-    </form>
+<form class="stepInput" style="display:none">
+    <h1>What STEP will help you to achieve your GOAL?</h1>
+    <input type="text" name="step" />
+    <button></button>
+</form>
 
-</div>
+<form class="actionInput" style="display:none">
+    <h1>What ACTION will you need to do to complete your STEP?</h1>
+    <input type="text" name="action" />
+    <button></button>
+</form>
+<form class="newStep" style="display:none">
+    <h1>What New STEP will help you to achieve your GOAL?</h1>
+    <input />
+</form>
