@@ -20,6 +20,7 @@
                 var txt = document.querySelector("[name=Goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
                 document.querySelector("#ShowGoal").style.display = "block";
+                document.querySelector("#finishGoal").style.display = "block";
                 document.querySelector("#goalInput").style.display = "none";
 
                 e.preventDefault();
@@ -32,20 +33,23 @@
 
 <form id="goalInput">
     <h1>What GOAL Do You Want To Accomplish?</h1>
-    <input name="Goal" type="text" />
+    <!-- todo: Add DB input code here.... -->
+    <input class="needs-work" name="Goal" type="text" />
     <button style="display:none"></button>
 </form>
-<div id="ShowGoal"style="display:none">
+<div id="ShowGoal" style="display:none">
     <div style="margin-top:200px">
-        <text>GOAL: <span id="Goal"></span></text>
+        <!-- todo: Add DB output code here.... -->
+        <text>GOAL: <span class="needs-work" id="Goal"></span></text>
     </div>
-    <div>
-        <label>Do You Want To Save Your Goal?</label>
+    <div id="finishGoal" style="display:none; margin-top:40px">
+        <button id="color" style="height:100px; width:100px; background-color:white;">COLOR CHOOSER</button>
+        <button id="addStep" style="height:100px; width:100px; background-color:white;">Add Step</button>
+        <button id="addAction" style="height:100px; width:100px; background-color:white;">Add Action</button>
+        <button id="recursion" style="height:100px; width:100px; background-color:white;">Done By</button>
         <div>
-            <button>Yes</button>
-            <button>Clear</button>
-            <button>Add Step</button>
-            <button>Add Action</button>
+            <button>SAVE</button>
+            <button>Clear All</button>
         </div>
     </div>
 </div>
