@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mens2020.Mvc.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace Mens2020.Mvc.Controllers
 {
@@ -42,12 +44,18 @@ namespace Mens2020.Mvc.Controllers
         {
             get
             {
+               
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+              
+               
             }
             private set
             {
                 _userManager = value;
+               
             }
+         
+           
         }
 
         //
@@ -71,7 +79,9 @@ namespace Mens2020.Mvc.Controllers
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
+               
+        };
+            var currentUserId = User.Identity.GetUserId();
             return View(model);
         }
 

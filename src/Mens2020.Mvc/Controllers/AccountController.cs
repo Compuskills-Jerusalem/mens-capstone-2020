@@ -45,6 +45,7 @@ namespace Mens2020.Mvc.Controllers
             get
             {
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                
             }
             private set
             {
@@ -156,9 +157,9 @@ namespace Mens2020.Mvc.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    var UserFirstName = model.FirstName;
-                  
-                   
+                    //var UserFirstName = model.FirstName;
+                  //  await _userManager.AddClaimAsync(UserFirstName, new Claim("FirstName", user.FirstName));
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     user.AccountCreated = DateTime.Now;
                     UserManager.Update(user);
