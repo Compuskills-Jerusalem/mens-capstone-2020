@@ -4,19 +4,24 @@
 }
 
 @section scripts{
-    <link rel="stylesheet" type="text/css" href="~/Content/MyStyleSheet.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
+
     <style>
+
         button {
             display: inline-block
         }
+
     </style>
     <script>
         window.addEventListener("load", function () {
             document.querySelector("form").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=Goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
-                document.querySelector("div").style.display = "block";
-                document.querySelector("form").style.display = "none";
+                document.querySelector("#ShowGoal").style.display = "block";
+                document.querySelector("#finishGoal").style.display = "block";
+                document.querySelector("#goalInput").style.display = "none";
 
                 e.preventDefault();
             });
@@ -26,18 +31,25 @@
 
 <h2>CreateQuick</h2>
 
-<form>
+<form id="goalInput">
     <h1>What GOAL Do You Want To Accomplish?</h1>
-    <input name="Goal" type="text" />
+    <!-- todo: Add DB input code here.... -->
+    <input class="needs-work" name="Goal" type="text" />
     <button style="display:none"></button>
 </form>
-<div style="display:none">
+<div id="ShowGoal" style="display:none">
     <div style="margin-top:200px">
-        <text>GOAL: <span id="Goal"></span></text>
+        <!-- todo: Add DB output code here.... -->
+        <text>GOAL: <span class="needs-work" id="Goal"></span></text>
     </div>
-    <div>
-        <label>Do You Want To Review Your Goal?</label>
-        <button>Yes</button>
-        <button>Clear</button>
+    <div id="finishGoal" style="display:none; margin-top:40px">
+        <button id="color" style="height:100px; width:100px; background-color:white;">COLOR CHOOSER</button>
+        <button id="addStep" style="height:100px; width:100px; background-color:white;">Add Step</button>
+        <button id="addAction" style="height:100px; width:100px; background-color:white;">Add Action</button>
+        <button id="recursion" style="height:100px; width:100px; background-color:white;">Done By</button>
+        <div>
+            <button>SAVE</button>
+            <button>Clear All</button>
+        </div>
     </div>
 </div>
