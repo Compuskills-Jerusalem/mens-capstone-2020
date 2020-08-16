@@ -13,6 +13,8 @@ using Microsoft.Owin.Security;
 using Mens2020.Mvc.Models;
 using Mens2020.DataSource.Models;
 using Mens2020.DataSource.DataSource;
+using System.Security.Principal;
+using System.Runtime.Remoting.Contexts;
 
 namespace Mens2020.Mvc
 {
@@ -109,7 +111,7 @@ namespace Mens2020.Mvc
         }
     }
 
-    public static class Capstone2020UserExtensions
+    public static class Capstone2020UserExtensions 
     {
         public static async Task<ClaimsIdentity> GenerateUserIdentityAsync(this Capstone2020User user, UserManager<Capstone2020User> manager)
         {
@@ -118,5 +120,20 @@ namespace Mens2020.Mvc
             // Add custom user claims here
             return userIdentity;
         }
+        //public static string GetFirstName(this IIdentity identity)
+        //{
+        //    //  var IdentityManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new IdentityDbContext()));
+
+        //    var MensManager = new UserManager<Capstone2020User>(new UserStore<Capstone2020User>(new  Capstone2020Context()));
+
+        //    var Currentid = HttpContext.Current.User.Identity.GetUserId();
+
+        //    // var CurrentUser = IdentityManager.FindById(Currentid);
+
+
+        //    var CurrentUser1 = MensManager.FindById(Currentid);
+        //    var FirstName = CurrentUser1.FirstName;
+        //    return FirstName;
+        //}
     }
-}
+     }

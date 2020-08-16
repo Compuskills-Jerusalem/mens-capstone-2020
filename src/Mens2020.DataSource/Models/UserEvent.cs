@@ -33,7 +33,7 @@ namespace Mens2020.DataSource.Models
 
         public override void Up()
         {
-            
+
         }
 
     }
