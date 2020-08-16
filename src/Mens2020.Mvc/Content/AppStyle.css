@@ -23,6 +23,27 @@ container-sidebar-and-body {
 .container-sidebar-and-body.sidebar-open .body-container {
     width: 80vw;
 }
-.needs-work{
-    background-color:chartreuse;
+.homepage-header{
+    margin:10px;
+}
+
+.homepage-goal-container {
+    border: solid;
+    height: 60vh;
+    width: 40vw;
+    display: inline-block;
+    padding: 4em;
+    font-size: large;
+}
+
+.homepage-Link-container {
+    float: right;
+    margin-top: 20vh;
+    display: inline;
+    height: 20vh;
+    width: 10vw;
+    border: solid;
+    text-align: center;
+    font-size: large;
+    padding-top: 27px;
 }
