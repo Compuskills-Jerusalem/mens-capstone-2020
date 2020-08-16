@@ -28,6 +28,14 @@ a {
     height: 100%;
 }
 
+input {
+    margin-bottom: 2em;
+}
+
+button{
+    display:inline-block
+}
+
 .show-previous {
     font-size: 30px;
     color: #303c6c;
@@ -52,4 +60,43 @@ a {
     height: 150px;
     margin: 25px;
     line-height: 60px;
+}
+
+.finishgoal-div {
+    position: relative;
+    display: none;
+    margin: 40px;
+    margin-bottom: 150px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.finishgoal-button {
+    height: 120px;
+    width: 120px;
+    background-color: white
+}
+
+.finishgoal-form-container {      
+    display: none;
+    top:initial;
+}
+
+.opaque-background {
+    position: absolute;
+    background-color: gray;
+    opacity: .3;
+    height: 200px;
+    width: 500px;
+    left: 28%;
+    top: -20px;
+}
+
+.finishgoal-form {
+    position: absolute;
+    display:none;
+    height: 150px;
+    width: 350px;
+    left: 34%;
+    top: 0px;
 }

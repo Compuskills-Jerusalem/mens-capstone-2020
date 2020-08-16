@@ -8,20 +8,16 @@
     <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
 
     <style>
-        input {
-            margin-bottom: 2em;
-            margin-left: 150px;
-        }
+
 
         h1 {
             text-align: center;
         }
-
     </style>
 
     <script>
         window.addEventListener("load", function () {
-            document.querySelector("#goalInput").addEventListener("submit", function (e) {
+            document.querySelector("#goalInput").addEventListener("submit", function GoalInput(e) {
                 var txt = document.querySelector("[name=goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
                 document.querySelector("#stepInput").style.display = "block";
@@ -31,9 +27,7 @@
                 e.preventDefault();
             });
 
-        });
-        window.addEventListener("load", function () {
-            document.querySelector("#stepInput").addEventListener("submit", function (e) {
+            document.querySelector("#stepInput").addEventListener("submit", function StepInput(e) {
                 var txt = document.querySelector("[name=step]").value;
                 document.querySelector("#Step").innerHTML = txt;
                 document.querySelector("#actionInput").style.display = "block";
@@ -42,36 +36,69 @@
 
                 e.preventDefault();
             });
-        });
 
-        window.addEventListener("load", function () {
-            document.querySelector("#actionInput").addEventListener("submit", function (e) {
+            document.querySelector("#addStep-form").addEventListener("submit", function NewStepInput(e) {
+                var txt = document.querySelector("[name=step]").value;
+                document.querySelector("#Step").innerHTML = txt;
+                document.querySelector("#actionInput").style.display = "block";
+                document.querySelector("#addStep-form").style.display = "none";
+                document.querySelector("#showStep").style.display = "block";
+
+                e.preventDefault();
+            });
+
+            document.querySelector("#actionInput").addEventListener("submit", function ActionInput(e) {
                 var txt = document.querySelector("[name=action]").value;
                 document.querySelector("#Action").innerHTML = txt;
                 document.querySelector("div").style.display = "block";
                 document.querySelector("#actionInput").style.display = "none";
                 document.querySelector("#showAction").style.display = "block";
                 document.querySelector("#finishGoal").style.display = "block";
-                var x, i;
-                x = document.querySelectorAll("button");
-                for (var i = 0; i < x.length; i++) {
-                    x[i].style.display = "inline-block";
-                }
+
+                e.preventDefault();
+            });
+
+            document.querySelector("#addAction-form").addEventListener("submit", function ActionInput(e) {
+                var txt = document.querySelector("[name=action]").value;
+                document.querySelector("#Action").innerHTML = txt;
+                document.querySelector("div").style.display = "block";
+                document.querySelector("#addAction-form").style.display = "none";
+                document.querySelector("#showAction").style.display = "block";
+                document.querySelector("#finishGoal").style.display = "block";
 
                 e.preventDefault();
             });
         });
-       //     function addStep() {
-       //         document.querySelector(".showAction").style.display = "none";
-       //         document.querySelector(".showStep").style.display = "none";
-       //         document.querySelector(".showSavediv").style.display = "none";
-       //        document.querySelector(".newStep").style.display = "block";
-       //     }
+
+        window.onload = function () {
+            document.querySelector("#color").addEventListener("click", function ColorChooser (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#color-form").style.display = "block";
+            })
+            document.querySelector("#addStep").addEventListener("click", function AddNewStep (e) {
+                document.querySelector("#finishGoal").style.display = "none";
+                document.querySelector("#showStep").style.display = "none";
+                document.querySelector("#showAction").style.display = "none";
+                document.querySelector("#addStep-form").style.display = "block";
+
+            })
+            document.querySelector("#addAction").addEventListener("click", function AddNewAction (e) {
+                document.querySelector("#finishGoal").style.display = "none";
+                document.querySelector("#showAction").style.display = "none";
+                document.querySelector("#addAction-form").style.display = "block";
+            })
+            document.querySelector("#recursion").addEventListener("click", function Recursion (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#recursion-form").style.display = "block";
+            })
+        };
 
     </script>
 }
 
 <h2>CreateGuided</h2>
+<!-- todo: (YS) #Action updater  -->
+<!-- todo: (YS) #Step updater -->
 
 <div class="goalPages-text ">
     <div id="showGoal" style="display:none">
@@ -86,11 +113,24 @@
         <!-- todo: Add DB output code here.... -->
         <text>ACTION: <span class="needs-work" id="Action"></span></text>
     </div>
-    <div id="finishGoal" style="display:none; margin-top:40px">
-        <button id="color" style="height:100px; width:100px; background-color:white;">COLOR CHOOSER</button>
-        <button id="addStep" style="height:100px; width:100px; background-color:white;">Add Step</button>
-        <button id="addAction" style="height:100px; width:100px; background-color:white;">Add Action</button>
-        <button id="recursion" style="height:100px; width:100px; background-color:white;">Done By</button>
+    <div id="finishGoal" class="finishgoal-div">
+        <div id="pop-up" class="finishgoal-form-container">
+            <div class="opaque-background"></div>
+            <form id="color-form" class="finishgoal-form">
+                <!-- todo: Add color chooser (YG) here.... -->
+                NEEDS COLOR CHOOSER!!!!
+            </form>
+            <form id="recursion-form" class="finishgoal-form">
+                <!-- todo: Add DB input code here.... -->
+                NEEDS CODE!
+            </form>
+
+
+        </div>
+        <button id="color" class="finishgoal-button">Choose Color</button>
+        <button id="addStep" class="finishgoal-button">Add Step</button>
+        <button id="addAction" class="finishgoal-button">Add Action</button>
+        <button id="recursion" class="finishgoal-button">Done By</button>
         <div>
             <button>SAVE</button>
             <button>Clear All</button>
@@ -118,4 +158,17 @@
         <button class="submit-by-enter"></button>
     </form>
 
-</div>
+    <form id="addStep-form" style="display:none">
+        <h1>What New STEP will help you to achieve your GOAL?</h1>
+        <!-- todo: Add DB input code here.... -->
+        <input class="needs-work" type="text" name="step" />
+        <button class="submit-by-enter"></button>
+    </form>
+
+    <form id="addAction-form" style="display:none">
+        <h1>What New Action will help you to achieve your Step?</h1>
+        <!-- todo: Add DB input code here.... -->
+        <input class="needs-work" type="text" name="Action" />
+        <button class="submit-by-enter"></button>
+    </form>
+</div> 
