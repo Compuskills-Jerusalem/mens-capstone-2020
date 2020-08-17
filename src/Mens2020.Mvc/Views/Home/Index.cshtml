@@ -53,7 +53,7 @@
         </p>
     </div>
     <div class="homepage-Link-container">
-        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided")
+        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided");
     </div>
 </div>
 <div id="experianced-user" style="display:none">
@@ -65,7 +65,7 @@
         </p>
     </div>
     <div class="homepage-Link-container">
-        <a href="~Views/_Goal/CreateQuick.cshtml">CREATE <br /> NEW <br /> GOAL</a>
+        @Html.ActionLink("CREATE NEW GOAL", "ChooseCreateType");
     </div>
 </div>
 
