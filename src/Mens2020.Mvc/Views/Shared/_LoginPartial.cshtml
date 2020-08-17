@@ -1,8 +1,9 @@
 ﻿@using Microsoft.AspNet.Identity
 @using System.Data
 @using Mens2020.Mvc.Models;
-@using Mens2020.DataSource.DataSource;
-@using Mens2020.DataSource.Models;
+@using Mens2020.DataSource.Models
+@using Mens2020.DataSource.DataSource
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -15,8 +16,8 @@
     }
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @*TODO: replace name to getfirstname method*@
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+          
+            @Html.ActionLink("Hello " +Capstone2020UserExtensions.GetFirstName(User.Identity) + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
