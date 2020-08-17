@@ -31,9 +31,12 @@
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#recursion-form").style.display = "block";
             })
-            document.querySelector("#close").addEventListener("click", function (e) {
+            document.querySelector("#close-color").addEventListener("click", function (e) {
                 document.querySelector("#pop-up").style.display = "none";
-                document.querySelector("#color-chooser").style.display = "none";
+                document.querySelector("#color-chooser").style.display = "none";                
+            })
+            document.querySelector("#close-recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
                 document.querySelector("#recursion-form").style.display = "none";
             })
         };
@@ -50,7 +53,7 @@
     <button style="display:none"></button>
 </form>
 <div id="ShowGoal" style="display:none">
-    <div style="margin-top:200px">
+    <div style="margin-top:20px">
         <!-- todo: Add DB output code here.... -->
         <text>GOAL: <span id="Goal"></span></text>
     </div>
@@ -59,11 +62,12 @@
             <div class="opaque-background"></div>
             <form id="color-chooser" class="finishgoal-form">
                 <!-- todo:(YG) Add color chooser here.... -->
-                <button id="close">X</button>
+                <button type="button" id="close-color" class="close-button">X</button>
                 NEEDS COLOR CHOOSER!!!!
             </form>
             <form id="recursion-form" class="finishgoal-form" style="display:none">
                 <!-- todo: Add DB input code here.... -->
+                <button type="button" id="close-recursion" class="close-button">X</button>
                 NEEDS CODE!
             </form>
         </div>

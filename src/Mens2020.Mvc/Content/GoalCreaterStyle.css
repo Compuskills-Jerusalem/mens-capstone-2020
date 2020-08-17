@@ -55,10 +55,9 @@ button{
 }
 .chooseGoal-container {
     border: solid;
-    position: absolute;
     width: 150px;
     height: 150px;
-    margin: 25px;
+    margin: 10px;
     line-height: 60px;
 }
 
@@ -99,4 +98,8 @@ button{
     width: 350px;
     left: 34%;
     top: 0px;
+}
+
+.close-button{
+    float:right;
 }

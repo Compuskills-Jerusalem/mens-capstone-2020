@@ -15,12 +15,13 @@
 <div>
     <form class="chooseGoalDiv">
         <div class="chooseGoal-container">
-            <a href="~/Views/_Goal/CreateGuided.cshtml">Do You Want To Make A Goal Together</a>
+            @Html.ActionLink("Do You Want To Make A Goal Together?", "CreateGuided");
         </div>
     </form>
-    <form class="chooseGoalDiv" style="float:right; display:none">
+    <div style="display:inline-block; background-color:#f4976c; width:50px"></div>
+    <form class="chooseGoalDiv">
         <div class="chooseGoal-container">
-            <a href="~/Views/_Goal/CreateQuick.cshtml">Do You Want To Make A Quick Goal</a>
+            @Html.ActionLink("Do You Want To Make A Quick Goal?", "CreateQuick");
         </div>
     </form>
 </div>

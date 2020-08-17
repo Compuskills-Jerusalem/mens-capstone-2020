@@ -13,7 +13,7 @@
 
     <script>
         var d = new Date();
-        document.getElementById("date").innerHTML = d;
+        document.getElementById("date").innerHTML = d.toString("d");
 
         window.onload = function () {
             document.querySelector("#switch").addEventListener("click", function (e) {
@@ -40,7 +40,7 @@
         <p id="date"></p>
     </div>
 </div>
-<div id="unexperianced-user" style="display:inline-block">
+<div id="unexperianced-user" style="display:block">
     <div class="homepage-goal-container">
         <p>
             <br />
@@ -53,7 +53,7 @@
         </p>
     </div>
     <div class="homepage-Link-container">
-        <a href="~Views/_Goal/CreateGuided.cshtml">CREATE <br /> NEW <br /> GOAL</a>
+        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided")
     </div>
 </div>
 <div id="experianced-user" style="display:none">

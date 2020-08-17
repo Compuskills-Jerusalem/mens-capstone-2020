@@ -91,6 +91,14 @@
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#recursion-form").style.display = "block";
             })
+            document.querySelector("#close-color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#color-chooser").style.display = "none";
+            })
+            document.querySelector("#close-recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#recursion-form").style.display = "none";
+            })
         };
 
     </script>
@@ -118,9 +126,11 @@
             <div class="opaque-background"></div>
             <form id="color-form" class="finishgoal-form">
                 <!-- todo:(YG) Add color chooser here.... -->
+                <button type="button" id="close-color" class="close-button">X</button>
                 NEEDS COLOR CHOOSER!!!!
             </form>
             <form id="recursion-form" class="finishgoal-form">
+                <button type="button" id="close-recursion" class="close-button">X</button>
                 <!-- todo: Add DB input code here.... -->
                 NEEDS CODE!
             </form>
@@ -168,7 +178,7 @@
     <form id="addAction-form" style="display:none">
         <h1>What New Action will help you to achieve your Step?</h1>
         <!-- todo: Add DB input code here.... -->
-        <input type="text" name="Action" />
+        <input type="text" name="action" />
         <button class="submit-by-enter"></button>
     </form>
 </div> 
