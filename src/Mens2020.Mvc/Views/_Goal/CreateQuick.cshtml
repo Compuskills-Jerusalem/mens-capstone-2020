@@ -7,16 +7,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
     <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
 
-    <style>
-
-        button {
-            display: inline-block
-        }
-
-    </style>
     <script>
+
+
         window.addEventListener("load", function () {
-            document.querySelector("form").addEventListener("submit", function (e) {
+            document.querySelector("#goalInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=Goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
                 document.querySelector("#ShowGoal").style.display = "block";
@@ -26,27 +21,58 @@
                 e.preventDefault();
             });
         });
+
+        window.onload = function () {
+            document.querySelector("#color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#color-chooser").style.display = "block";
+            })
+            document.querySelector("#recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#recursion-form").style.display = "block";
+            })
+            document.querySelector("#close-color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#color-chooser").style.display = "none";                
+            })
+            document.querySelector("#close-recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#recursion-form").style.display = "none";
+            })
+        };
     </script>
 }
 
 <h2>CreateQuick</h2>
+<!-- todo: (YS) close button -->
 
 <form id="goalInput">
     <h1>What GOAL Do You Want To Accomplish?</h1>
     <!-- todo: Add DB input code here.... -->
-    <input class="needs-work" name="Goal" type="text" />
+    <input name="Goal" type="text" />
     <button style="display:none"></button>
 </form>
 <div id="ShowGoal" style="display:none">
-    <div style="margin-top:200px">
+    <div style="margin-top:20px">
         <!-- todo: Add DB output code here.... -->
-        <text>GOAL: <span class="needs-work" id="Goal"></span></text>
+        <text>GOAL: <span id="Goal"></span></text>
     </div>
-    <div id="finishGoal" style="display:none; margin-top:40px">
-        <button id="color" style="height:100px; width:100px; background-color:white;">COLOR CHOOSER</button>
-        <button id="addStep" style="height:100px; width:100px; background-color:white;">Add Step</button>
-        <button id="addAction" style="height:100px; width:100px; background-color:white;">Add Action</button>
-        <button id="recursion" style="height:100px; width:100px; background-color:white;">Done By</button>
+    <div id="finishGoal" class="finishgoal-div">
+        <div id="pop-up" class="finishgoal-form-container">
+            <div class="opaque-background"></div>
+            <form id="color-chooser" class="finishgoal-form">
+                <!-- todo:(YG) Add color chooser here.... -->
+                <button type="button" id="close-color" class="close-button">X</button>
+                NEEDS COLOR CHOOSER!!!!
+            </form>
+            <form id="recursion-form" class="finishgoal-form" style="display:none">
+                <!-- todo: Add DB input code here.... -->
+                <button type="button" id="close-recursion" class="close-button">X</button>
+                NEEDS CODE!
+            </form>
+        </div>
+        <button id="color" class="finishgoal-button">Choose Color</button>
+        <button id="recursion" class="finishgoal-button">Done By</button>
         <div>
             <button>SAVE</button>
             <button>Clear All</button>

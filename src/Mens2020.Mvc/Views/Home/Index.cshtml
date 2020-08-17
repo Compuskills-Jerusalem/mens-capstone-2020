@@ -2,30 +2,71 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
+
+    <style>
+        tab1 {
+            padding-left: 4em
+        }
+    </style>
+
+    <script>
+        var d = new Date();
+        document.getElementById("date").innerHTML = d.toString("d");
+
+        window.onload = function () {
+            document.querySelector("#switch").addEventListener("click", function (e) {
+                document.querySelector("#unexperianced-user").style.display = "none";
+                document.querySelector("#experianced-user").style.display = "block";
+            })
+        };
+    </script>
+}
+
+
+<!-- todo: (YS) fix links -->
+<!-- todo: (YS) experianced/unexperianced -->
+<!-- todo: (YS) date only! -->
+<div class="homepage-header">
+    <div style="display:inline-block">
+        <p>USER NAME</p>
+        <p>COACH NAME</p>
+    </div>
+    <div style="display:inline-block; margin-left:20px;">
+        <button id="switch">Only here to show how "experinced" user homepage works</button>
+    </div>
+    <div style="float:right">
+        <p id="date"></p>
+    </div>
+</div>
+<div id="unexperianced-user" style="display:block">
+    <div class="homepage-goal-container">
+        <p>
+            <br />
+            <br />
+            <tab1>
+                You have made an account, found yourself a coach, that's Two GOALS Accomplished already.
+                <br />
+                <br />
+                <tab1>The next GOAL is to create a GOAL of your own. Let's get started. Just click on the "Create New Goal" button, and we will walk you through how to Make A GOAL of your own.
+        </p>
+    </div>
+    <div class="homepage-Link-container">
+        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided")
+    </div>
+</div>
+<div id="experianced-user" style="display:none">
+    <div class="homepage-goal-container">
+        <p>
+            <!-- todo: Add DB output code here.... -->
+            ACTIVE GOALS! (DB input should be here)<br /> eploural enumaphants were really dipsomes (e.n. i think they are distant cousins of elephants, and like the doodoos, were too stupid to survive the ice age.
+            they were never seen individually so they were called ploural, the e was cause the one who made the discovery of the mammel had a lisp.)<br /> I PUT THIS IN FOR A. DIAMOND, WHERE EVER HE MAY BE FOUND!
+        </p>
+    </div>
+    <div class="homepage-Link-container">
+        <a href="~Views/_Goal/CreateQuick.cshtml">CREATE <br /> NEW <br /> GOAL</a>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
