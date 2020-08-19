@@ -12,6 +12,15 @@
     </style>
 
     <script>
+        var experianced = 0;
+        $(window).load(function () {
+            if (experianced == true) {
+                document.querySelector("#unexperianced-user").style.display = "none";
+                document.querySelector("#experianced-user").style.display = "block";
+            }
+            else { }
+        });
+
         var d = new Date();
         document.getElementById("date").innerHTML = d.toString("d");
 
@@ -27,6 +36,7 @@
 
 <!-- todo: (YS) fix links -->
 <!-- todo: (YS) experianced/unexperianced -->
+<!-- todo: Add DB output code here.... -->
 <!-- todo: (YS) date only! -->
 <div class="homepage-header">
     <div style="display:inline-block">
@@ -34,6 +44,7 @@
         <p>COACH NAME</p>
     </div>
     <div style="display:inline-block; margin-left:20px;">
+        <!-- todo: (YS) remove after DB code set-up -->
         <button id="switch">Only here to show how "experinced" user homepage works</button>
     </div>
     <div style="float:right">
