@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Mens2020.DataSource.Models
 {
-    class UserEvent: DbMigration
+    public class UserEvent: DbMigration
     {
         [Key]
         [Required]
