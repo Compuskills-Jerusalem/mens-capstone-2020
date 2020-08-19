@@ -8,6 +8,7 @@ namespace Mens2020.Mvc.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
