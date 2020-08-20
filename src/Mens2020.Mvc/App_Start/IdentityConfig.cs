@@ -120,6 +120,8 @@ namespace Mens2020.Mvc
             // Add custom user claims here
             return userIdentity;
         }
+        //todo: switch username to email sign up
+        //public  override  Task<SignInStatus> PasswordSignInAsync(string Email, string password, bool isPersistent, bool shouldLockout);
         public static string GetFirstName( IIdentity identity)
         {
             //  var IdentityManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new IdentityDbContext()));

@@ -1,4 +1,8 @@
-﻿@using Mens2020.Mvc.Models
+﻿@using Microsoft.AspNet.Identity
+@using System.Data
+@using Mens2020.Mvc.Models;
+@using Mens2020.DataSource.Models
+@using Mens2020.DataSource.DataSource
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
@@ -15,10 +19,10 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName, "" , new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
