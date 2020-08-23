@@ -34,7 +34,6 @@
 }
 
 
-<!-- todo: (YS) fix links -->
 <!-- todo: (YS) experianced/unexperianced -->
 <!-- todo: Add DB output code here.... -->
 <!-- todo: (YS) date only! -->
@@ -64,7 +63,7 @@
         </p>
     </div>
     <div class="homepage-Link-container">
-        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided");
+        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided", "_Goal")
     </div>
 </div>
 <div id="experianced-user" style="display:none">
@@ -76,8 +75,9 @@
         </p>
     </div>
     <div class="homepage-Link-container">
-        @Html.ActionLink("CREATE NEW GOAL", "ChooseCreateType");
+        @Html.ActionLink("CREATE NEW GOAL", "ChooseCreateType", "_Goal")
     </div>
 </div>
+
 
 
