@@ -85,17 +85,17 @@ namespace Mens2020.Mvc.Controllers
                 return View();
             }
         }
-
+        [Authorize]
         public ActionResult CreateGuided()
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult CreateQuick()
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult ChooseCreateType()
         {
             return View();
