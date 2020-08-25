@@ -1,5 +1,5 @@
-﻿
-@{
+﻿@model Mens2020.Mvc.Models.CreateGoalModel
+
     ViewBag.Title = "CreateGuided";
 }
 
@@ -71,23 +71,23 @@
         });
 
         window.onload = function () {
-            document.querySelector("#color").addEventListener("click", function ColorChooser (e) {
+            document.querySelector("#color").addEventListener("click", function ColorChooser(e) {
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#color-form").style.display = "block";
             })
-            document.querySelector("#addStep").addEventListener("click", function AddNewStep (e) {
+            document.querySelector("#addStep").addEventListener("click", function AddNewStep(e) {
                 document.querySelector("#finishGoal").style.display = "none";
                 document.querySelector("#showStep").style.display = "none";
                 document.querySelector("#showAction").style.display = "none";
                 document.querySelector("#addStep-form").style.display = "block";
 
             })
-            document.querySelector("#addAction").addEventListener("click", function AddNewAction (e) {
+            document.querySelector("#addAction").addEventListener("click", function AddNewAction(e) {
                 document.querySelector("#finishGoal").style.display = "none";
                 document.querySelector("#showAction").style.display = "none";
                 document.querySelector("#addAction-form").style.display = "block";
             })
-            document.querySelector("#recursion").addEventListener("click", function Recursion (e) {
+            document.querySelector("#recursion").addEventListener("click", function Recursion(e) {
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#recursion-form").style.display = "block";
             })

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Mens2020.DataSource.Models.UserEvent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.EventTypeId)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventText)
+        </th>
+  
+        <th>
+            @Html.DisplayNameFor(model => model.RecurID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.RevisionID)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.EventTypeId)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.EventTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EventText)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.RecurID)
+    </td>
+    <td>
+        @Html.DisplayFor(Model => item.RevisionID)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.UserEventId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.UserEventId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.UserEventId })
+    </td>
+</tr>
+}
+
+</table>
