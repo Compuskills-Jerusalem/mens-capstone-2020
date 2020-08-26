@@ -1,0 +1,106 @@
+﻿@model Mens2020.DataSource.Models.UserEvent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserEvent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompletedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ColorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ColorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModificationDatetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModificationDatetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevisionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevisionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecurID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecurID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserEventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

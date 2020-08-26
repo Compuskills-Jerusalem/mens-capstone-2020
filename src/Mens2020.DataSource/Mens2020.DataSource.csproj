@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="DataSource\Capstone2020Context.cs" />
     <Compile Include="Models\Capstone2020User.cs" />
+    <Compile Include="Models\Color.cs" />
     <Compile Include="Models\UserEvent.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

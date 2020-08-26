@@ -1,5 +1,5 @@
-﻿
-@{
+﻿@model Mens2020.Mvc.Models.CreateGoalModel
+
     ViewBag.Title = "CreateGuided";
 }
 
@@ -71,23 +71,39 @@
         });
 
         window.onload = function () {
+<<<<<<< HEAD
             document.querySelector("#color").addEventListener("click", function (e) {
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#color-form").style.display = "block";
             })
             document.querySelector("#addStep").addEventListener("click", function (e) {
+=======
+            document.querySelector("#color").addEventListener("click", function ColorChooser(e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#color-form").style.display = "block";
+            })
+            document.querySelector("#addStep").addEventListener("click", function AddNewStep(e) {
+>>>>>>> ed8b9eb2d577ff2f8a4cb329a071faa31b1ed038
                 document.querySelector("#finishGoal").style.display = "none";
                 document.querySelector("#showStep").style.display = "none";
                 document.querySelector("#showAction").style.display = "none";
                 document.querySelector("#addStep-form").style.display = "block";
 
             })
+<<<<<<< HEAD
             document.querySelector("#addAction").addEventListener("click", function (e) {
+=======
+            document.querySelector("#addAction").addEventListener("click", function AddNewAction(e) {
+>>>>>>> ed8b9eb2d577ff2f8a4cb329a071faa31b1ed038
                 document.querySelector("#finishGoal").style.display = "none";
                 document.querySelector("#showAction").style.display = "none";
                 document.querySelector("#addAction-form").style.display = "block";
             })
+<<<<<<< HEAD
             document.querySelector("#recursion").addEventListener("click", function (e) {
+=======
+            document.querySelector("#recursion").addEventListener("click", function Recursion(e) {
+>>>>>>> ed8b9eb2d577ff2f8a4cb329a071faa31b1ed038
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#recursion-form").style.display = "block";
             })

@@ -1,0 +1,92 @@
+﻿@model Mens2020.DataSource.Models.UserEvent
+
+@{
+    ViewBag.Title = "CreateQuick";
+}
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
+
+    <script>
+
+
+        window.addEventListener("load", function () {
+            document.querySelector("#goalInput").addEventListener("submit", function (e) {
+                var txt = document.querySelector("[name=Goal]").value;
+                document.querySelector("#Goal").innerHTML = txt;
+                document.querySelector("#ShowGoal").style.display = "block";
+                document.querySelector("#finishGoal").style.display = "block";
+                document.querySelector("#goalInput").style.display = "none";
+
+                e.preventDefault();
+            });
+        });
+
+        window.onload = function () {
+            document.querySelector("#color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#color-chooser").style.display = "block";
+            })
+            document.querySelector("#recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#recursion-form").style.display = "block";
+            })
+            document.querySelector("#close-color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#color-chooser").style.display = "none";
+            })
+            document.querySelector("#close-recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#recursion-form").style.display = "none";
+            })
+
+        };
+    </script>
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ColorID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ColorID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
