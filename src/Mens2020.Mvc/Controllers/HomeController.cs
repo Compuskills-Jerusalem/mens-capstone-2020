@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mens2020.DataSource.DataSource;
+using Mens2020.DataSource.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,19 @@ namespace Mens2020.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize]
+
         public ActionResult Index()
         {
-            return View();
+            using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
+            {
+             
+
+                var UserGoalList = db.UserEvents.ToList();
+
+                return View(UserGoalList);
+                
+            }
+            
         }
 
         public ActionResult About()

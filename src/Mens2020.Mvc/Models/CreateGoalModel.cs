@@ -1,50 +1,38 @@
-﻿using System;
+﻿using Mens2020.DataSource.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Mens2020.DataSource.Models
-    
+namespace Mens2020.Mvc.Models
 {
-    public class UserEvent
+    public class CreateGoalModel
     {
-        [Key]
-        [Required]
-        
+
+
+
+
         public string UserEventId { get; set; }
 
-        [Required]
+
         public int EventTypeId { get; set; }
 
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
-        [Required]
+
         public DateTime CreationDate { get; set; }
         public DateTime? CompletedDate { get; set; }
         public string EventTitle { get; set; }
         public string EventText { get; set; }
         public int ColorID { get; set; }
         public DateTime? ModificationDatetime { get; set; }
+        //[errormessages()]
         public int RevisionID { get; set; }
         public int RecurID { get; set; }
-
         public IEnumerable<UserEvent> UserEvents { get; set; }
-
-        //[ForeignKey]
-        //public Guid id { get; set }
-        public string UserId { get; set; }
-        [ForeignKey("UserId")]
-        public virtual Capstone2020User User { get; set; }
-
-        //public override void Up()
-        //{
-
-        //}
-
+   
     }
 }
