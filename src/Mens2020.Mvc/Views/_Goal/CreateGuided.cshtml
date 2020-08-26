@@ -17,7 +17,7 @@
 
     <script>
         window.addEventListener("load", function () {
-            document.querySelector("#goalInput").addEventListener("submit", function GoalInput(e) {
+            document.querySelector("#goalInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=goal]").value;
                 document.querySelector("#Goal").innerHTML = txt;
                 document.querySelector("#stepInput").style.display = "block";
@@ -27,7 +27,7 @@
                 e.preventDefault();
             });
 
-            document.querySelector("#stepInput").addEventListener("submit", function StepInput(e) {
+            document.querySelector("#stepInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=step]").value;
                 document.querySelector("#Step").innerHTML = txt;
                 document.querySelector("#actionInput").style.display = "block";
@@ -37,7 +37,7 @@
                 e.preventDefault();
             });
 
-            document.querySelector("#addStep-form").addEventListener("submit", function NewStepInput(e) {
+            document.querySelector("#addStep-form").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=step]").value;
                 document.querySelector("#Step").innerHTML = txt;
                 document.querySelector("#actionInput").style.display = "block";
@@ -47,7 +47,7 @@
                 e.preventDefault();
             });
 
-            document.querySelector("#actionInput").addEventListener("submit", function ActionInput(e) {
+            document.querySelector("#actionInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=action]").value;
                 document.querySelector("#Action").innerHTML = txt;
                 document.querySelector("div").style.display = "block";
@@ -58,7 +58,7 @@
                 e.preventDefault();
             });
 
-            document.querySelector("#addAction-form").addEventListener("submit", function ActionInput(e) {
+            document.querySelector("#addAction-form").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=action]").value;
                 document.querySelector("#Action").innerHTML = txt;
                 document.querySelector("div").style.display = "block";
@@ -71,23 +71,23 @@
         });
 
         window.onload = function () {
-            document.querySelector("#color").addEventListener("click", function ColorChooser (e) {
+            document.querySelector("#color").addEventListener("click", function (e) {
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#color-form").style.display = "block";
             })
-            document.querySelector("#addStep").addEventListener("click", function AddNewStep (e) {
+            document.querySelector("#addStep").addEventListener("click", function (e) {
                 document.querySelector("#finishGoal").style.display = "none";
                 document.querySelector("#showStep").style.display = "none";
                 document.querySelector("#showAction").style.display = "none";
                 document.querySelector("#addStep-form").style.display = "block";
 
             })
-            document.querySelector("#addAction").addEventListener("click", function AddNewAction (e) {
+            document.querySelector("#addAction").addEventListener("click", function (e) {
                 document.querySelector("#finishGoal").style.display = "none";
                 document.querySelector("#showAction").style.display = "none";
                 document.querySelector("#addAction-form").style.display = "block";
             })
-            document.querySelector("#recursion").addEventListener("click", function Recursion (e) {
+            document.querySelector("#recursion").addEventListener("click", function (e) {
                 document.querySelector("#pop-up").style.display = "block";
                 document.querySelector("#recursion-form").style.display = "block";
             })
@@ -98,6 +98,79 @@
             document.querySelector("#close-recursion").addEventListener("click", function (e) {
                 document.querySelector("#pop-up").style.display = "none";
                 document.querySelector("#recursion-form").style.display = "none";
+            })
+            document.querySelector("#submitRecursion").addEventListener("click", function (e) {
+                document.querySelector("#recursion-form").style.display = "none";
+                document.querySelector("#pop-up").style.display = "none";
+
+
+                var sundayChecked = document.getElementById("sunday");
+                var sundayclicked = document.getElementById("sunday");
+                if (sundayChecked.checked == true) {
+                    sunday1.checked = "checked";
+                } else {
+                    sunday1.checked = "";
+                }
+
+                var mondayChecked = document.getElementById("monday");
+                var mondayclicked = document.getElementById("monday");
+                if (mondayChecked.checked == true) {
+                    monday1.checked = "checked";
+                } else {
+                    monday1.checked = "";
+                }
+
+                var tuesdayChecked = document.getElementById("tuesday");
+                var tuesdayclicked = document.getElementById("tuesday");
+                if (tuesdayChecked.checked == true) {
+                    tuesday1.checked = "checked";
+                } else {
+                    tuesday1.checked = "";
+                }
+
+                var wednesdayChecked = document.getElementById("wednesday");
+                var wednesdayclicked = document.getElementById("wednesday");
+                if (wednesdayChecked.checked == true) {
+                    wednesday1.checked = "checked";
+                } else {
+                    wednesday1.checked = "";
+                }
+
+                var thursdayChecked = document.getElementById("thursday");
+                var thursdayclicked = document.getElementById("thursday");
+                if (thursdayChecked.checked == true) {
+                    thursday1.checked = "checked";
+                } else {
+                    thursday1.checked = "";
+                }
+
+                var fridayChecked = document.getElementById("friday");
+                var fridayclicked = document.getElementById("friday");
+                if (fridayChecked.checked == true) {
+                    friday1.checked = "checked";
+                } else {
+                    friday1.checked = "";
+                }
+
+                var saturdayChecked = document.getElementById("saturday");
+                var saturdayclicked = document.getElementById("saturday");
+                if (saturdayChecked.checked == true) {
+                    saturday1.checked = "checked";
+                } else {
+                    saturday1.checked = "";
+                }
+
+                var dailyChecked = document.getElementById("daily");
+                var dailyclicked = document.getElementById("daily");
+                if (dailyChecked.checked == true) {
+                    sunday1.checked = "checked";
+                    monday1.checked = "checked";
+                    tuesday1.checked = "checked";
+                    wednesday1.checked = "checked";
+                    thursday1.checked = "checked";
+                    friday1.checked = "checked";
+                    saturday1.checked = "checked";
+                } else { }
             })
         };
 
@@ -130,15 +203,71 @@
             <form id="recursion-form" class="finishgoal-form">
                 <button type="button" id="close-recursion" class="close-button">X</button>
                 <!-- todo: Add DB input code here.... -->
-                NEEDS CODE!
+                <div>
+                    <div>
+                        <input type="checkbox" id="sunday" value="sunday">Sunday
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="monday" value="monday">Monday
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="tuesday" value="tuesday">Tuesday
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="wednesday" value="wednesday">Wednesday
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="thursday" value="thursday">Thursday
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="friday" value="friday">Friday
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="saturday" value="saturday">Saturday
+                    </div>
+                    <br />
+                    <div>
+                        <input type="checkbox" id="daily" value="daily"><b>DAILY</b>
+                    </div>
+                </div>
+
+                <button type="button" id="submitRecursion">Submit</button>
             </form>
-
-
         </div>
-        <button id="color" class="finishgoal-button">Choose Color</button>
-        <button id="addStep" class="finishgoal-button">Add Step</button>
-        <button id="addAction" class="finishgoal-button">Add Action</button>
-        <button id="recursion" class="finishgoal-button">Done By</button>
+        <div>
+            <div id="recursion" class="finishgoal-button" style="padding-top:15px;"> 
+                <div style="position:absolute; height:120px; width:120px; opacity:0"></div>
+                <div id="review">
+                    <div>
+                        <input type="checkbox" id="sunday1" value="sunday1">Sun
+                        <input type="checkbox" id="monday1" value="monday1">Mon
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="tuesday1" value="tuesday1">Tues
+                        <input type="checkbox" id="wednesday1" value="wednesday1">Weds
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="thursday1" value="thursday1">Thurs
+                        <input type="checkbox" id="friday1" value="friday1">Fri
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="saturday1" value="saturday1">Sat
+                    </div>
+                </div>
+            </div>
+            <div id="addStep" class="finishgoal-button" style="padding-top:44px;">Add Step <br /><br /><br /></div>
+            <div id="addAction" class="finishgoal-button" style="padding-top:44px;">Add Action  <br /><br /><br /></div>
+            <div id="color" class="finishgoal-button" style="padding-top:44px;">Done By <br /><br /><br /></div>
+        </div>
         <div>
             <button>SAVE</button>
             <button>Clear All</button>
