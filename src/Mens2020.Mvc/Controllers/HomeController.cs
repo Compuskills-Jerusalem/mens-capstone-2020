@@ -10,7 +10,7 @@ namespace Mens2020.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-
+        [Authorize]
         public ActionResult Index()
         {
             using (var db = new Capstone2020Context(nameof(Capstone2020Context)))

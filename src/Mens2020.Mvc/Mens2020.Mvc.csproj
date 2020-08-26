@@ -181,6 +181,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SignInRedirectController.cs" />
     <Compile Include="Controllers\UserEventsController.cs" />
     <Compile Include="Controllers\_GoalController.cs" />
     <Compile Include="Global.asax.cs">
@@ -189,6 +190,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreateGoalModel.cs" />
+    <Compile Include="Models\RecursionDate.cs" />
+    <Compile Include="Models\UserEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -275,6 +278,7 @@
     <Content Include="Views\UserEvents\Details.cshtml" />
     <Content Include="Views\UserEvents\Edit.cshtml" />
     <Content Include="Views\UserEvents\Index.cshtml" />
+    <Content Include="Views\SignInRedirect\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
