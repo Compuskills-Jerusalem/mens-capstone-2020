@@ -73,7 +73,8 @@ button{
 .finishgoal-button {
     height: 120px;
     width: 120px;
-    background-color: white
+    background-color: white;
+    display:inline-block;
 }
 
 .finishgoal-form-container {      
