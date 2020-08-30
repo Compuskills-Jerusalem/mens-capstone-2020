@@ -16,12 +16,18 @@ namespace Mens2020.Mvc.Controllers
     public class UserEventsController : Controller
     {
         private Capstone2020Context db = new Capstone2020Context(nameof(Capstone2020Context));
-        
-                        
+
+
         // GET: UserEvents
+        [Authorize]
         public ActionResult Index()
     {
-        var userEvents = db.UserEvents.Include(u => u.User);
+            var currentUser = User.Identity.GetUserId();
+
+            var userEvents = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
+                             where currentUser == loggedInUserEvent.UserId
+                             select loggedInUserEvent
+                            ;
         return View(userEvents.ToList());
     }
 
@@ -41,7 +47,7 @@ namespace Mens2020.Mvc.Controllers
     }
 
         // GET: UserEvents/Create
-        public ActionResult Create()
+        public ActionResult CreateQuick()
         {
             using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
             {
@@ -55,24 +61,26 @@ namespace Mens2020.Mvc.Controllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create([Bind(Include = "UserEventId,EventTypeId,ParentId,CreationDate,CompletedDate,EventTitle,EventText,ColorID,ModificationDatetime,RevisionID,RecurID,UserId")] UserEvent userEvent)
+    public ActionResult CreateQuick([Bind(Include = "UserEventId,EventTypeId,ParentId,CreationDate,CompletedDate,EventTitle,EventText,ColorID,ModificationDatetime,RevisionID,RecurID,UserId")] UserEvent userEvent)
     {
             using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
             {
                 //if (ModelState.IsValid)
                 //{
-                userEvent.UserEventId = Guid.NewGuid().ToString();
+                    userEvent.UserEventId = Guid.NewGuid().ToString();
                 userEvent.RevisionID = 0;
+                userEvent.UserId = User.Identity.GetUserId();
+
                 var @event = new UserEvent
                 {
                     UserEventId = userEvent.UserEventId,
-                    UserId = User.Identity.GetUserId(),
+                    UserId = userEvent.UserId,
                     ColorID = 1,
                     CompletedDate = userEvent.CompletedDate,
                     CreationDate = DateTime.Now,
                     EventTitle = userEvent.EventTitle,
                     EventText = userEvent.EventText,
-
+                    //RecurID = RecurIntValue,
                     RecurID = 0,
                     EventTypeId = 1
 
@@ -118,10 +126,10 @@ namespace Mens2020.Mvc.Controllers
     {
             using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
             {
-                //if (ModelState.IsValid)
-                //{
-                userEvent.UserEventId = userEvent.UserEventId;
-                userEvent.RevisionID = userEvent.RevisionID + 1;
+                if (ModelState.IsValid)
+                {
+                    userEvent.UserEventId = userEvent.UserEventId;
+                userEvent.RevisionID += 1;
                 userEvent.ModificationDatetime = DateTime.Now;
                 var @event = new UserEvent
                 {
@@ -129,16 +137,17 @@ namespace Mens2020.Mvc.Controllers
                     EventTitle = userEvent.EventTitle,
                     EventText = userEvent.EventText,
                     ColorID = userEvent.ColorID
+                    //RecurID = (Day)RecurID
 
                 };
                     db.Entry(@event).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
-                //}
-                //ViewBag.UserId = new SelectList("Id", userEvent.UserId);
-                //return View(userEvent);
+                }
+                ViewBag.UserId = new SelectList("Id", userEvent.UserId);
+                return View(userEvent);
             }
-    }
+            }
 
     // GET: UserEvents/Delete/5
     public ActionResult Delete(string id)
