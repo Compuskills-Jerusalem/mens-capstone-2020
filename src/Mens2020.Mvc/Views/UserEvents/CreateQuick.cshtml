@@ -1,6 +1,4 @@
 ﻿@model Mens2020.DataSource.Models.UserEvent
-  
-
 @{
     ViewBag.Title = "CreateQuick";
 }
@@ -10,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
 
     <script>
-
-        @using Mens2020.DataSource.Models
+         @using Mens2020.DataSource.Models
         @{ int RecurIntValue;}
+
         window.addEventListener("load", function () {
             document.querySelector("#goalInput").addEventListener("submit", function (e) {
                 var txt = document.querySelector("[name=Goal]").value;
@@ -44,8 +42,7 @@
             })
 
         };
-
-        window.onload = function () {
+         window.onload = function () {
             document.querySelector("#submitColor").addEventListener("click", function (e) {
                 document.querySelector("#review").style.display = "block";
 
@@ -133,118 +130,148 @@
 
     </script>
 }
-<h2>Create</h2>
+
+<h2>CreateQuick</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
 
-<div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.EventTitle, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.EventTitle, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.EventTitle, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.EventText, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.EventText, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.EventText, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ColorID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.ColorID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-
-
     <div>
-        <div>
-            <input type="checkbox" id="sunday" value="sunday">Sunday
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventTitle, "", new { @class = "text-danger" })
+            </div>
         </div>
 
-        <div>
-            <input type="checkbox" id="monday" value="monday">Monday
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventText, "", new { @class = "text-danger" })
+            </div>
         </div>
 
-        <div>
-            <input type="checkbox" id="tuesday" value="tuesday">Tuesday
+        <div class="form-group">
+            @Html.LabelFor(model => model.ColorID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ColorID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ColorID, "", new { @class = "text-danger" })
+            </div>
         </div>
 
-        <div>
-            <input type="checkbox" id="wednesday" value="wednesday">Wednesday
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
 
-        <div>
-            <input type="checkbox" id="thursday" value="thursday">Thursday
-        </div>
 
         <div>
-            <input type="checkbox" id="friday" value="friday">Friday
+            <div>
+                <input type="checkbox" id="sunday" value="sunday">Sunday
+            </div>
+
+            <div>
+                <input type="checkbox" id="monday" value="monday">Monday
+            </div>
+
+            <div>
+                <input type="checkbox" id="tuesday" value="tuesday">Tuesday
+            </div>
+
+            <div>
+                <input type="checkbox" id="wednesday" value="wednesday">Wednesday
+            </div>
+
+            <div>
+                <input type="checkbox" id="thursday" value="thursday">Thursday
+            </div>
+
+            <div>
+                <input type="checkbox" id="friday" value="friday">Friday
+            </div>
+
+            <div>
+                <input type="checkbox" id="saturday" value="saturday">Saturday
+            </div>
+            <br />
+            <div>
+                <input type="checkbox" id="daily" value="daily"><b>DAILY</b>
+            </div>
         </div>
 
-        <div>
-            <input type="checkbox" id="saturday" value="saturday">Saturday
+        <button id="submitColor">Submit</button>
+        <div id="review" style="display:none">
+            <div>
+                <input type="checkbox" id="sunday1" value="sunday1">Sunday
+            </div>
+
+            <div>
+                <input type="checkbox" id="monday1" value="monday1">Monday
+            </div>
+
+            <div>
+                <input type="checkbox" id="tuesday1" value="tuesday1">Tuesday
+            </div>
+
+            <div>
+                <input type="checkbox" id="wednesday1" value="wednesday1">Wednesday
+            </div>
+
+            <div>
+                <input type="checkbox" id="thursday1" value="thursday1">Thursday
+            </div>
+
+            <div>
+                <input type="checkbox" id="friday1" value="friday1">Friday
+            </div>
+
+            <div>
+                <input type="checkbox" id="saturday1" value="saturday1">Saturday
+            </div>
         </div>
-        <br />
-        <div>
-            <input type="checkbox" id="daily" value="daily"><b>DAILY</b>
-        </div>
+
+
     </div>
-
-    <button id="submitColor">Submit</button>
-    <div id="review" style="display:none">
-        <div>
-            <input type="checkbox" id="sunday1" value="sunday1">Sunday
-        </div>
-
-        <div>
-            <input type="checkbox" id="monday1" value="monday1">Monday
-        </div>
-
-        <div>
-            <input type="checkbox" id="tuesday1" value="tuesday1">Tuesday
-        </div>
-
-        <div>
-            <input type="checkbox" id="wednesday1" value="wednesday1">Wednesday
-        </div>
-
-        <div>
-            <input type="checkbox" id="thursday1" value="thursday1">Thursday
-        </div>
-
-        <div>
-            <input type="checkbox" id="friday1" value="friday1">Friday
-        </div>
-
-        <div>
-            <input type="checkbox" id="saturday1" value="saturday1">Saturday
-        </div>
-    </div>
-
-
-</div>
 
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
+</div>
+
+<div id="ShowGoal" style="display:none">
+    <div style="margin-top:20px">
+        <!-- todo: Add DB output code here.... -->
+        <text>GOAL: <span id="Goal"></span></text>
+    </div>
+    <div id="finishGoal" class="finishgoal-div">
+        <div id="pop-up" class="finishgoal-form-container">
+            <div class="opaque-background"></div>
+            <form id="color-chooser" class="finishgoal-form">
+                <!-- todo:(YG) Add color chooser here.... -->
+                <button type="button" id="close-color" class="close-button">X</button>
+                NEEDS COLOR CHOOSER!!!!
+            </form>
+            <form id="recursion-form" class="finishgoal-form" style="display:none">
+                <!-- todo: Add DB input code here.... -->
+                <button type="button" id="close-recursion" class="close-button">X</button>
+                NEEDS CODE!
+            </form>
+        </div>
+        <button id="color" class="finishgoal-button">Choose Color</button>
+        <button id="recursion" class="finishgoal-button">Done By</button>
+        <div>
+
+            <button id="save">SAVE</button>
+            <button>Clear All</button>
+        </div>
+    </div>
 </div>

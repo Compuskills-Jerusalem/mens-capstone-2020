@@ -94,32 +94,7 @@ namespace Mens2020.Mvc.Controllers
                    
 
                     
-                    //Capstone2020Context db = new Capstone2020Context();
-                    
-                        
-                        // TODO: Add insert logic here
-                        //var userEvent = new UserEvent();
-
-                        
-                        
-                        //string GoalTitle = Request.Form["Goal"];
-
-                        //userEvent.EventTitle = GoalTitle;
-
-                        //userEvent.UserEventId = new Guid();
-
-                        //userEvent.CreationDate = DateTime.Now;
-
-                        //userEvent.EventTypeId = 1;
-
-                        
-
-
-
-
-                        //TODO: onbuttionlickforsavecheck for working database intigration
-
-
+                  
 
 
 

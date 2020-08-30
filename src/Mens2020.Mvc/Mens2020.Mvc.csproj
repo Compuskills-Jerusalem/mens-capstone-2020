@@ -266,7 +266,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\AddMentor.cshtml" />
-    <Content Include="Views\_Goal\CreateQuick.cshtml" />
+    <Content Include="Views\UserEvents\CreateQuick.cshtml" />
     <Content Include="Views\_Goal\CreateGuided.cshtml" />
     <Content Include="Views\_Goal\ChooseCreateType.cshtml" />
     <Content Include="Views\View.cshtml" />
