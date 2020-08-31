@@ -124,16 +124,13 @@ namespace Mens2020.Mvc
         //public  override  Task<SignInStatus> PasswordSignInAsync(string Email, string password, bool isPersistent, bool shouldLockout);
         public static string GetFirstName( IIdentity identity)
         {
-            //  var IdentityManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new IdentityDbContext()));
-            //string apstone2020Context = "Capstone2020Context";
+          
             var MensManager = new UserManager<Capstone2020User>(new UserStore<Capstone2020User>(new Capstone2020Context(nameof(Capstone2020Context))));
 
 
             var Currentid = HttpContext.Current.User.Identity.GetUserId();
 
-            // var CurrentUser = IdentityManager.FindById(Currentid);
-
-
+          
             var CurrentUser1 = MensManager.FindById(Currentid);
             var FirstName = CurrentUser1.FirstName;
             return FirstName;
