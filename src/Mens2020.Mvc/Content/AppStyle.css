@@ -23,6 +23,15 @@ container-sidebar-and-body {
 .container-sidebar-and-body.sidebar-open .body-container {
     width: 80vw;
 }
+
+.container-sidebar-and-body.not-signed-in .sidebar {
+    display:none;
+}
+
+.container-sidebar-and-body.not-signed-in .body-container {
+    width: 100vw;
+}
+
 .homepage-header{
     margin:10px;
 }

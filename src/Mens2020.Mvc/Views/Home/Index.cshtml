@@ -41,6 +41,7 @@
 <div class="homepage-header">
     <div style="display:inline-block">
         <p>@User.Identity.Name</p>
+        <!-- todo: Coach name needed -->
         <p>COACH NAME</p>
     </div>
     <div style="display:inline-block; margin-left:20px;">
@@ -64,7 +65,7 @@
         </p>
     </div>
     <div class="homepage-Link-container">
-        @Html.ActionLink("CREATE NEW GOAL", "Create", "UserEvents")
+        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided", "_Goal")
     </div>
 </div>
 <div id="experianced-user" style="display:none">

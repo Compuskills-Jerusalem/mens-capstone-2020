@@ -9,16 +9,22 @@
     <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
 
     <script>
+
         window.addEventListener("load", function () {
             document.querySelector("div.sidebar").addEventListener("mouseover", function (e) {
                 $(".container-sidebar-and-body").toggleClass("sidebar-open")
             });
         });
+        window.onclick = function () {
+            document.querySelector("#unset").addEventListener("click", function (e) {
+                $(".container-sidebar-and-body").toggleClass("not-signed-in")
+            })
+        }
 
     </script>
 
 </head>
-<body class="container-sidebar-and-body">
+<body class="container-sidebar-and-body" @Request.IsAuthenticated $"not-signed-in">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -37,25 +43,28 @@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
-        </div>
+        </div> 
     </div>
     
     <div class="sidebar">
         <!-- todo: Add DB output code here.... -->
-        THIS IS JUST FOR REFERANCE! needs code put in!
+        THIS IS JUST FOR REFERANCE! needs code put in!<br />
+        
         <div style="height:20%"><h1>goals</h1></div>
         <div style="height:20%"><h1>steps</h1></div>
         <div style="height:20%"><h1>actions</h1></div>
     </div>
-        <div class="body-container" style="background-color: #fbe8a6;">
-            <div class="container body-content">
-                @RenderBody()
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                </footer>
-            </div>
+
+    <div class="body-container" style="background-color: #fbe8a6;">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
         </div>
+        <button id="unset">signed out</button>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
