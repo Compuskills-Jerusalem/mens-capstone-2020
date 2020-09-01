@@ -22,9 +22,9 @@
         }
 
     </script>
-
+        
 </head>
-<body class="container-sidebar-and-body" @Request.IsAuthenticated $"not-signed-in">
+<body class="container-sidebar-and-body @(!Request.IsAuthenticated ? "not-signed-in" : "")">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
