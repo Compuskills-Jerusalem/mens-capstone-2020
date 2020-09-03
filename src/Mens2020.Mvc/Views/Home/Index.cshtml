@@ -57,25 +57,17 @@
         <p>
             <br />
             <br />
-            <tab1>
-                You have made an account, found yourself a coach, that's Two GOALS Accomplished already.
-                <br />
-                <br />
-                <tab1>The next GOAL is to create a GOAL of your own. Let's get started. Just click on the "Create New Goal" button, and we will walk you through how to Make A GOAL of your own.
+            <tab1>You have made an account, found yourself a coach, that's Two GOALS Accomplished already.
+            <br />
+            <br />
+            <tab1>The next GOAL is to create a GOAL of your own. Let's get started. Just click on the "Create New Goal" button, and we will walk you through how to Make A GOAL of your own.
+            <br /><br />
+            <tab1><tab1>@Html.ActionLink("CREATE NEW GOAL", "CreateGuided", "_Goal")
         </p>
-    </div>
-    <div class="homepage-Link-container">
-        @Html.ActionLink("CREATE NEW GOAL", "CreateGuided", "_Goal")
     </div>
 </div>
 <div id="experianced-user" style="display:none">
     <div class="homepage-goal-container">
-        <p>
-
-            <!-- todo: Add DB output code here.... -->
-            ACTIVE GOALS! (DB input should be here)<br /> eploural enumaphants were really dipsomes (e.n. i think they are distant cousins of elephants, and like the doodoos, were too stupid to survive the ice age.
-            they were never seen individually so they were called ploural, the e was cause the one who made the discovery of the mammel had a lisp.)<br /> I PUT THIS IN FOR A. DIAMOND, WHERE EVER HE MAY BE FOUND!
-        </p>
         <table>
             <tr>
                 <th>
@@ -89,42 +81,43 @@
             </tr>
         </table>
 
-        @if(Model.Count()>0)
+        @if (Model.Count() > 0)
         {
             foreach (var item in Model)
             {
                 <table>
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EventTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EventText)
-                </td>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventText)
+                        </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.UserEventId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.UserEventId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.UserEventId })
-                </td>
-            </tr>
-                    </table>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.UserEventId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.UserEventId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.UserEventId })
+                        </td>
+                    </tr>
+                </table>
             }
-         }
-       else{
-           <table>
-               <tr>
-                   <td>
-                       You have no active goals at the moment
-                   </td>
-               </tr>
-           </table>
-            
+        }
+        else
+        {
+            <table>
+                <tr>
+                    <td>
+                        You have no active goals at the moment
+                    </td>
+                </tr>
+            </table>
+
         }
         
-    </div>
-    <div class="homepage-Link-container">
+    <div style="margin-top:20px">
         @Html.ActionLink("CREATE NEW GOAL", "ChooseCreateType", "_Goal")
+    </div>
     </div>
 </div>
 
