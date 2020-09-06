@@ -1,5 +1,7 @@
 ﻿using Mens2020.DataSource.DataSource;
 using Mens2020.DataSource.Models;
+using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +17,18 @@ namespace Mens2020.Mvc.Controllers
         {
             using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
             {
-             
 
-                var UserGoalList = db.UserEvents.ToList();
+                var currentUser = User.Identity.GetUserId();
 
-                return View(UserGoalList);
-                
+                var userEvents = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
+                                 where currentUser == loggedInUserEvent.UserId
+                                 select loggedInUserEvent
+                                ;
+                return View(userEvents.ToList());
+
+
             }
-            
+
         }
 
         public ActionResult About()
