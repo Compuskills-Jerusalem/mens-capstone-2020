@@ -118,7 +118,8 @@
        
         <div class="form-group">
             @Html.LabelFor(model => model.ColorID, htmlAttributes: new { @class = "control-label col-md-2" })
-           
+            <div style="height:100px; opacity:.1; background-color:white"></div>
+            <div id="color-chooser" style="width:160px; border:10px solid black">
                 <select id=selector>
                     <option value="white" class="transparent">Select Color</option>
                     <option class="red" value="red">red</option>
@@ -132,6 +133,8 @@
                     <option class="tan" value="tan">tan</option>
                     <option class="grey" value="grey">grey</option>
                 </select>
+                <button type="button" onclick="selectBackground()">Preview</button>
+            </div>
          
             
         </div>
