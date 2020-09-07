@@ -26,25 +26,28 @@ namespace Mens2020.DataSource.Models
         [Required]
         public DateTime CreationDate { get; set; }
         public DateTime? CompletedDate { get; set; }
+
+        [Display(Name = "Goal")]
         public string EventTitle { get; set; }
+
+        [Display(Name = "Description")]
         public string EventText { get; set; }
+
+        [Display(Name = "Color")]
         public int ColorID { get; set; }
         public DateTime? ModificationDatetime { get; set; }
         public int RevisionID { get; set; }
+
+        [Display(Name = "Repeats")]
         public int RecurID { get; set; }
 
         public IEnumerable<UserEvent> UserEvents { get; set; }
 
-        //[ForeignKey]
-        //public Guid id { get; set }
+  
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual Capstone2020User User { get; set; }
 
-        //public override void Up()
-        //{
-
-        //}
-
+       
     }
 }

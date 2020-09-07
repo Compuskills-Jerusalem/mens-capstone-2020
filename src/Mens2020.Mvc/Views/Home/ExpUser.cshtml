@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Mens2020.DataSource.Models.UserEvent>
+@{
+    ViewBag.Title = "ExpUser";
+}
+
+<h2>Welcome back, @Capstone2020UserExtensions.GetFirstName(User.Identity)!</h2>
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "CreateQuick")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EventTypeId)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EventTitle)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EventText)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.RecurID)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTypeId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTitle)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EventText)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RecurID)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.UserEventId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UserEventId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserEventId })
+            </td>
+        </tr>
+    }
+
+</table>

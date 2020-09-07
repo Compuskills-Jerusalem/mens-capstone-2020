@@ -279,6 +279,12 @@
     <Content Include="Views\UserEvents\Edit.cshtml" />
     <Content Include="Views\UserEvents\Index.cshtml" />
     <Content Include="Views\SignInRedirect\Index.cshtml" />
+    <Content Include="Views\Home\ExpUser.cshtml" />
+    <Content Include="Views\Home\NewUser.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\_Goal\CreateQuick.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

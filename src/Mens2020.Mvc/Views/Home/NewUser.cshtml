@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Mens2020.DataSource.Models.UserEvent>
+@{
+    ViewBag.Title = "NewUser";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+    }
+
+    @Html.ActionLink("Hi " + Capstone2020UserExtensions.GetFirstName(User.Identity) + ", let's get started!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+
+}

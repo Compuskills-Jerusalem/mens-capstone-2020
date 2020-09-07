@@ -25,12 +25,19 @@ namespace Mens2020.Mvc.Models
 
         //public virtual  Id { get; set; }
 
+        [Display(Name = "Goal")]
         public string EventTitle { get; set; }
+
+        [Display(Name = "Description")]
         public string EventText { get; set; }
+
+        [Display(Name = "Color")]
         public int ColorId { get; set; }
         public int ModificationDateTime { get; set; }
 
         public int RevisionID { get; set; }
+
+        [Display(Name = "Repeats")]
         public Day RecusionId { get; set; }
     }
 }
