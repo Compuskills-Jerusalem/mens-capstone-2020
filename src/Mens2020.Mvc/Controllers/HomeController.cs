@@ -43,6 +43,22 @@ namespace Mens2020.Mvc.Controllers
             }
 
         }
+        public ActionResult About()
+
+        {
+
+            return View();
+
+
+        }
+        public ActionResult Contact()
+
+        {
+
+            return View();
+
+
+        }
 
         public ActionResult Details(string id)
         {
