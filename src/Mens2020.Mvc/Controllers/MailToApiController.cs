@@ -11,7 +11,8 @@ namespace Mens2020.Mvc.Controllers
     {
         public IEnumerable<string> Get()
         {
-            return new string[] { "TEST STRING" };
+            return new string[] { "value1", "value2" };
         }
+        
     }
 }
