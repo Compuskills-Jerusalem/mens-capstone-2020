@@ -3,11 +3,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Are you a new user or have you used this application before?</h2>
 
 <section>
-    <button type="button" onclick="location.href='@Url.Action("Index","Home")'">Returning User</button>
+    <button type="button" class="button" onclick="location.href='@Url.Action("Index","Home")'">Returning User</button>
+    <button type="button" class="button" onclick="location.href='@Url.Action("CreateGuided","_Goal")'">New User</button>
 </section>
-<section>
-    <button type="button" onclick="location.href='@Url.Action("CreateGuided","_Goal")'">New User</button>
-</section>
+
+
+ <style>
+    .button {
+        background-color: dodgerblue;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+</style>
