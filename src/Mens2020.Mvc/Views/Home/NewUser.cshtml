@@ -11,7 +11,7 @@
         @Html.AntiForgeryToken()
 
     }
-
+    //todo: Redirect New user to create a goal
     @Html.ActionLink("Hi " + Capstone2020UserExtensions.GetFirstName(User.Identity) + ", let's get started!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
 
 }

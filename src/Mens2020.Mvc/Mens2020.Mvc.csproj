@@ -191,7 +191,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreateGoalModel.cs" />
     <Compile Include="Models\RecursionDate.cs" />
-    <Compile Include="Models\UserEvents.cs" />
+    <Compile Include="Models\UserEventModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -285,6 +285,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\_Goal\CreateQuick.cshtml" />
+    <Content Include="Views\Home\CreateQuick.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

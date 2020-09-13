@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net;
+using Mens2020.Mvc.Models;
 
 namespace Mens2020.Mvc.Controllers
 {
@@ -23,16 +24,53 @@ namespace Mens2020.Mvc.Controllers
 
                 var currentUser = User.Identity.GetUserId();
 
-                var userEvents = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
-                                 where currentUser == loggedInUserEvent.UserId
-                                 select loggedInUserEvent
+
+
+                var currentUserEvents = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
+                                        where currentUser == loggedInUserEvent.UserId
+                                        select loggedInUserEvent
                                 ;
-               
-                if (userEvents.Count() >0)
+
+
+                var activeUserEvents = db.UserEvents.AsEnumerable().Where(u => u.UserId == currentUser)
+                    .Select(u => new
+                    {
+                        EventId = u.UserEventId,
+                        EventName = u.EventTitle,
+                        u.RecurID
+                    }).FirstOrDefault();
+
+                
+                var currentUserEventID = activeUserEvents.EventId;
+
+                //casts the int value into Day Enum
+                var currentUserRecurID = (Day)activeUserEvents.RecurID;
+
+                //converts Day enum to string for comparison
+                var currentUserRecurString = currentUserRecurID.ToString();
+
+                List<string> activeRecurIdList = new List<string>();
+
+                //checks if currentUserRecurString has today listed
+
+                if (currentUserRecurString.Contains(DateTime.Today.DayOfWeek.ToString()))
                 {
-                    
-                   
-                    return View("ExpUser", userEvents.ToList());
+                    activeRecurIdList.Add(activeUserEvents.EventId);
+                }
+                List<UserEvent> listOfTodaysGoals = new List<UserEvent>();
+
+                foreach (var item in activeRecurIdList)
+                {
+
+                    var TodaysGoals = currentUserEvents.Where(u => u.UserEventId == item.ToString()).FirstOrDefault();
+                    listOfTodaysGoals.Add(TodaysGoals);
+                }
+
+                if (currentUserEvents.Count() > 0)
+                {
+
+
+                    return View("ExpUser", listOfTodaysGoals);
                 }
                 else
                 {
@@ -89,27 +127,62 @@ namespace Mens2020.Mvc.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateQuick([Bind(Include = "UserEventId,EventTypeId,ParentId,CreationDate,CompletedDate,EventTitle,EventText,ColorID,ModificationDatetime,RevisionID,RecurID,UserId")] UserEvent userEvent)
+        public ActionResult CreateQuick([Bind(Include = "UserEventId,EventTypeId,ParentId,CreationDate,CompletedDate,EventTitle," +
+            "EventText,ColorID,ModificationDatetime,RevisionID,RecurID,UserId,RecurIntValue,SundayClickedBool," +
+            "MondayClickedBool,TuesdayClickedBool,WednesdayClickedBool,ThursdayClickedBool,FridayClickedBool,SaturdayClickedBool")] UserEventModels userEvents)
         {
             using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
             {
-                userEvent.UserEventId = Guid.NewGuid().ToString();
-                userEvent.RevisionID = 0;
-                userEvent.UserId = User.Identity.GetUserId();
+                if (userEvents.SundayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Sunday;
+                }
+                if (userEvents.MondayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Monday;
+                }
+                if (userEvents.TuesdayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Tuesday;
+                }
+                if (userEvents.WednesdayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Wednesday;
+                }
+                if (userEvents.ThursdayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Thursday;
+                }
+                if (userEvents.FridayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Friday;
+                }
+                if (userEvents.SaturdayClickedBool)
+                {
+                    userEvents.RecurIntValue += (int)Day.Saturday;
+                }
+
+                userEvents.UserEventId = Guid.NewGuid().ToString();
+
+                userEvents.RevisionID = 0;
+
+                userEvents.UserId = User.Identity.GetUserId();
+
                 DateTime CreationDateTimeValue = DateTime.Now;
 
 
                 var @event = new UserEvent
                 {
-                    UserEventId = userEvent.UserEventId,
-                    UserId = userEvent.UserId,
+                    UserEventId = userEvents.UserEventId,
+                    UserId = userEvents.UserId,
                     ColorID = 1,
-                    CompletedDate = userEvent.CompletedDate,
+                    CompletedDate = userEvents.CompletedDate,
                     CreationDate = CreationDateTimeValue,
-                    EventTitle = userEvent.EventTitle,
-                    EventText = userEvent.EventText,
-                    RecurID = 0,
+                    EventTitle = userEvents.EventTitle,
+                    EventText = userEvents.EventText,
+                    RecurID = userEvents.RecurIntValue,
                     EventTypeId = 1
+
 
                 };
                 db.UserEvents.Add(@event);

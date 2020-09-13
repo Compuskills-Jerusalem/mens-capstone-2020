@@ -37,81 +37,57 @@ namespace Mens2020.Mvc.Controllers
 
 
         {
-            
+
             return View();
 
-          
+
         }
 
         // POST: _Goal/Create
         [HttpPost]
         // public ActionResult Create([Bind(Include = "LastName, FirstMidName, EnrollmentDate")] Student student)
-     
-        public ActionResult Create( CreateGoalModel model )
+
+        public ActionResult Create(CreateGoalModel model)
         {
-            // public ActionResult Create([Bind( Include = FormCollection collection)
-            
+     
+            using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
+            {
 
 
+                model.UserEventId = Guid.NewGuid().ToString();
+                model.RevisionID = 0;
+                var @event = new UserEvent
+                {
+                    UserEventId = model.UserEventId,
+                    UserId = User.Identity.GetUserId(),
+                    ColorID = 1,
+                    CompletedDate = model.CompletedDate,
+                    CreationDate = DateTime.Now,
+                    EventTitle = model.EventTitle,
+                    EventText = model.EventText,
+                    RecurID = 0,
+                    EventTypeId = 1
 
-               
-                    //if (ModelState.IsValid)
-                    //{
-                        using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
-                        {
-
-
-                        model.UserEventId = Guid.NewGuid().ToString();
-                        model.RevisionID =  0;
-                //model.EventTitle = "This is my first goal";
-                //model.EventText = "This is the text of my first goal";
-
-
-                //if (User.Identity.IsAuthenticated)
-                //{
-
-                //}
-                            var @event = new UserEvent
-                            {
-                                UserEventId = model.UserEventId,
-                                UserId = User.Identity.GetUserId(),
-                                ColorID = 1,
-                                CompletedDate = model.CompletedDate,
-                                CreationDate = DateTime.Now,
-                                EventTitle = model.EventTitle,
-                                EventText = model.EventText,
-                                RecurID = 0,
-                                EventTypeId = 1
-
-                            };
-               string CurrentUserId = User.Identity.GetUserId();
+                };
+                string CurrentUserId = User.Identity.GetUserId();
                 db.Set<UserEvent>().Add(@event);
 
                 db.SaveChanges();
-                
-                      
-                        }
-                   
-
-                    
-                  
 
 
+            }
 
-                        return RedirectToAction("Index");
-                    //}
-                    //else
-                    //{
-                    //    return View(model);
-                    //}
-              
-            
+
+            return RedirectToAction("Index");
+
+
+
         }
         // GET: _Goal/Edit/5
         public ActionResult Edit(int id)
         {
-          
-                return View();
+
+            return View();
 
         }
 
@@ -119,7 +95,7 @@ namespace Mens2020.Mvc.Controllers
         [HttpPost]
         public ActionResult Edit(int id, CreateGoalModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 // TODO: Add update logic here
                 using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
@@ -130,14 +106,14 @@ namespace Mens2020.Mvc.Controllers
 
 
                     db.SaveChanges();
-                  
+
                 }
 
 
 
                 return RedirectToAction("Index");
-                }
-            
+            }
+
             else
             {
                 return View(model);
@@ -147,9 +123,9 @@ namespace Mens2020.Mvc.Controllers
         // GET: _Goal/Delete/5
         public ActionResult Delete(int id)
         {
-          
 
-                return View();
+
+            return View();
         }
 
         // POST: _Goal/Delete/5
@@ -162,7 +138,7 @@ namespace Mens2020.Mvc.Controllers
 
                 using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
                 {
-                   // db.UserEvents.Remove(UserEvent id);
+                    // db.UserEvents.Remove(UserEvent id);
 
 
                 }
