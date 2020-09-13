@@ -86,7 +86,7 @@
         function selectBackground() {
             var e = document.getElementById("selector");
             var BackgroundValue = e.options[e.selectedIndex].value;
-            document.getElementById("color-chooser").style.borderColor = BackgroundValue;
+            document.getElementById("selector").style.backgroundColor = BackgroundValue;
         }
 
     </script>
@@ -134,8 +134,7 @@
                 <option class="tan" value="tan">tan</option>
                 <option class="grey" value="grey">grey</option>
             </select>
-
-
+            <button type="button" onclick="selectBackground()">Preview</button>
         </div>
     </div>
 
