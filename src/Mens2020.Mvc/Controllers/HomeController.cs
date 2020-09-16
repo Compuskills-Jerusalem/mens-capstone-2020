@@ -23,54 +23,23 @@ namespace Mens2020.Mvc.Controllers
             {
 
                 var currentUser = User.Identity.GetUserId();
-
+                var todayAsDayEnum = (int)DateTime.Today.DayOfWeek.ConvertToDay();
 
 
                 var currentUserEvents = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
                                         where currentUser == loggedInUserEvent.UserId
+                                        where (loggedInUserEvent.RecurID & todayAsDayEnum) == todayAsDayEnum
                                         select loggedInUserEvent
                                 ;
 
 
-                //var activeUserEvents = db.UserEvents.AsEnumerable().Where(u => u.UserId == currentUser)
-                //    .Select(u => new
-                //    {
-                //        EventId = u.UserEventId,
-                //        EventName = u.EventTitle,
-                //        u.RecurID
-                //    }).FirstOrDefault();
+        
 
-                
-                //var currentUserEventID = activeUserEvents.EventId;
-
-                //casts the int value into Day Enum
-                //var currentUserRecurID = (Day)activeUserEvents.RecurID;
-
-                //converts Day enum to string for comparison
-                //var currentUserRecurString = currentUserRecurID.ToString();
-
-                //List<string> activeRecurIdList = new List<string>();
-
-                //checks if currentUserRecurString has today listed
-
-                //if (currentUserRecurString.Contains(DateTime.Today.DayOfWeek.ToString()))
-                //{
-                //    activeRecurIdList.Add(activeUserEvents.EventId);
-                //}
-                //List<UserEvent> listOfTodaysGoals = new List<UserEvent>();
-
-                //foreach (var item in activeRecurIdList)
-                //{
-
-                //    var TodaysGoals = currentUserEvents.Where(u => u.UserEventId == item.ToString()).FirstOrDefault();
-                //    listOfTodaysGoals.Add(TodaysGoals);
-                //}
-
-                if (currentUserEvents.Count() > 0)
+                if (currentUserEvents.Count() >0 )
                 {
 
 
-                    return View("ExpUser", currentUserEvents);
+                    return View("ExpUser", currentUserEvents.ToList());
                 }
                 else
                 {
