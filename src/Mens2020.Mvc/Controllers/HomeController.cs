@@ -23,8 +23,13 @@ namespace Mens2020.Mvc.Controllers
             {
 
                 var currentUser = User.Identity.GetUserId();
+
                 var todayAsDayEnum = (int)DateTime.Today.DayOfWeek.ConvertToDay();
 
+                var currentUserAllGoalList = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
+                                        where currentUser == loggedInUserEvent.UserId                                     
+                                        select loggedInUserEvent
+                              ;
 
                 var currentUserEvents = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
                                         where currentUser == loggedInUserEvent.UserId
@@ -33,9 +38,9 @@ namespace Mens2020.Mvc.Controllers
                                 ;
 
 
-        
 
-                if (currentUserEvents.Count() >0 )
+
+                if (currentUserAllGoalList.Count() > 0)
                 {
 
 
