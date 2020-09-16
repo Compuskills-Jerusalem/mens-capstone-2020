@@ -1,35 +1,5 @@
-﻿.sidebar {
-    width: 2vw;
+﻿.body-container {
     height: 100vh;
-    float: left;
-    border: solid;
-    overflow-x: hidden;
-}
-
-.body-container {
-    width: 95vw;
-    height: 100vh;
-    float: right;
-}
-
-container-sidebar-and-body {
-    background-color: #fbe8a6;
-}
-
-.container-sidebar-and-body.sidebar-open .sidebar {
-    width: 19vw;
-}
-
-.container-sidebar-and-body.sidebar-open .body-container {
-    width: 80vw;
-}
-
-.container-sidebar-and-body.not-signed-in .sidebar {
-    display:none;
-}
-
-.container-sidebar-and-body.not-signed-in .body-container {
-    width: 100vw;
 }
 
 .homepage-header{
