@@ -46,16 +46,6 @@ namespace Mens2020.Mvc.Controllers
             return View(userEvent);
         }
 
-        // GET: UserEvents/Create
-        public ActionResult CreateQuick()
-        {
-            using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
-            {
-                ViewBag.UserId = new SelectList(User.Identity.GetUserName(), "Id", "FirstName");
-            }
-            return View();
-        }
-
         // POST: UserEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
