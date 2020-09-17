@@ -166,5 +166,10 @@ namespace Mens2020.Mvc.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult AllGoals()
+        {
+            return View();
+        }
     }
 }

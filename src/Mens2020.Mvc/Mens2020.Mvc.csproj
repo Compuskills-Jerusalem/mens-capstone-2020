@@ -407,8 +407,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\AddMentor.cshtml" />
     <Content Include="Views\UserEvents\CreateQuick.cshtml" />
-    <Content Include="Views\_Goal\CreateGuided.cshtml" />
-    <Content Include="Views\_Goal\ChooseCreateType.cshtml" />
     <Content Include="Views\View.cshtml" />
     <Content Include="Views\UserEvents\Create.cshtml" />
     <Content Include="Views\UserEvents\Delete.cshtml" />
@@ -423,6 +421,7 @@
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\_Goal\CreateQuick.cshtml" />
     <Content Include="Views\Home\CreateQuick.cshtml" />
+    <Content Include="Views\_Goal\AllGoals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

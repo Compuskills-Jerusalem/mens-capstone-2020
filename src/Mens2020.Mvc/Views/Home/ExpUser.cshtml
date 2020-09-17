@@ -12,35 +12,26 @@
     @Html.ActionLink("Create New", "CreateQuick", "Home")
 </p>
 <table class="table">
-    <tr>
-
-      
-
+    <tr>   
         <th>
             @Html.DisplayNameFor(model => model.EventTitle)
         </th>
 
         <th>
             @Html.DisplayNameFor(model => model.EventText)
-        </th>
-
-      
-
+        </th>   
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-
             <td>
                 @Html.DisplayFor(modelItem => item.EventTitle)
             </td>
 
             <td>
                 @Html.DisplayFor(modelItem => item.EventText)
-            </td>
-
-           
+            </td>           
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.UserEventId }) |
@@ -49,5 +40,4 @@
             </td>
         </tr>
     }
-
 </table>
