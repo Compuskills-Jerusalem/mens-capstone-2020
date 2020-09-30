@@ -1,0 +1,138 @@
+﻿@model Mens2020.DataSource.Models.UserEvent
+@{
+    ViewBag.Title = "CreateQuick";
+}
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
+
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .darkblue {
+            background-color: dodgerblue;
+        }
+
+        .purple {
+            background-color: mediumpurple;
+        }
+
+        .pink {
+            background-color: lightpink;
+        }
+
+        .brown {
+            background-color: sandybrown;
+        }
+
+        .tan {
+            background-color: tan;
+        }
+
+        .grey {
+            background-color: gainsboro;
+        }
+    </style>
+    <script>
+         @using Mens2020.DataSource.Models
+        @{ int RecurIntValue;}
+
+        function selectBackground() {
+            var e = document.getElementById("selector");
+            var BackgroundValue = e.options[e.selectedIndex].value;
+            document.getElementById("selector").style.backgroundColor = BackgroundValue;
+        }
+
+    </script>
+}
+
+<h2>CreateQuick</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ColorID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select id="selector">
+                    <option value="white" class="transparent">Select Color</option>
+                    <option class="red" value="red">red</option>
+                    <option class="orange" value="orange">orange</option>
+                    <option class="yellow" value="yellow">yellow</option>
+                    <option class="green" value="green">green</option>
+                    <option class="darkblue" value="darkblue">blue</option>
+                    <option class="purple" value="purple">purple</option>
+                    <option class="pink" value="pink">pink</option>
+                    <option class="brown" value="brown">brown</option>
+                    <option class="tan" value="tan">tan</option>
+                    <option class="grey" value="grey">grey</option>
+                </select>
+                <button type="button" onclick="selectBackground()">Preview</button>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <input type="checkbox" id="sunday" value="sunday">Sunday
+            <br />
+            <input type="checkbox" id="monday" value="monday">Monday
+            <br />
+            <input type="checkbox" id="tuesday" value="tuesday">Tuesday
+            <br />
+            <input type="checkbox" id="wednesday" value="wednesday">Wednesday
+            <br />
+            <input type="checkbox" id="thursday" value="thursday">Thursday
+            <br />
+            <input type="checkbox" id="friday" value="friday">Friday
+            <br />
+            <input type="checkbox" id="saturday" value="saturday">Saturday
+            <br />
+            <input type="checkbox" id="daily" value="daily"><b>DAILY</b>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

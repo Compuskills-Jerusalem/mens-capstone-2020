@@ -1,0 +1,182 @@
+﻿@model Mens2020.Mvc.Models.UserEventModels
+@{
+    ViewBag.Title = "CreateQuick";
+}
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="~/Content/AppStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/GoalCreaterStyle.css">
+
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .darkblue {
+            background-color: dodgerblue;
+        }
+
+        .purple {
+            background-color: mediumpurple;
+        }
+
+        .pink {
+            background-color: lightpink;
+        }
+
+        .brown {
+            background-color: sandybrown;
+        }
+
+        .tan {
+            background-color: tan;
+        }
+
+        .grey {
+            background-color: gainsboro;
+        }
+    </style>
+    <script>
+        
+
+
+        window.addEventListener("load", function () {
+            document.querySelector("#goalInput").addEventListener("submit", function (e) {
+                var txt = document.querySelector("[name=Goal]").value;
+                document.querySelector("#Goal").innerHTML = txt;
+                document.querySelector("#ShowGoal").style.display = "block";
+                document.querySelector("#finishGoal").style.display = "block";
+                document.querySelector("#goalInput").style.display = "none";
+
+                e.preventDefault();
+            });
+        });
+
+        window.onload = function () {
+            document.querySelector("#color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#color-chooser").style.display = "block";
+            });
+            document.querySelector("#recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "block";
+                document.querySelector("#recursion-form").style.display = "block";
+            });
+            document.querySelector("#close-color").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#color-chooser").style.display = "none";
+            });
+            document.querySelector("#close-recursion").addEventListener("click", function (e) {
+                document.querySelector("#pop-up").style.display = "none";
+                document.querySelector("#recursion-form").style.display = "none";
+            });
+        };
+
+        function selectBackground() {
+            var e = document.getElementById("selector");
+            var BackgroundValue = e.options[e.selectedIndex].value;
+            document.getElementById("color-chooser").style.borderColor = BackgroundValue;
+        }
+
+    </script>
+}
+
+<h2>CreateQuick</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EventText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EventText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EventText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ColorId, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <select id=selector>
+                <option value="white" class="transparent">Select Color</option>
+                <option class="red" value="red">red</option>
+                <option class="orange" value="orange">orange</option>
+                <option class="yellow" value="yellow">yellow</option>
+                <option class="green" value="green">green</option>
+                <option class="darkblue" value="darkblue">blue</option>
+                <option class="purple" value="purple">purple</option>
+                <option class="pink" value="pink">pink</option>
+                <option class="brown" value="brown">brown</option>
+                <option class="tan" value="tan">tan</option>
+                <option class="grey" value="grey">grey</option>
+            </select>
+
+
+        </div>
+    </div>
+
+    <div >
+        @Html.HiddenFor(model => model.RecurIntValue)
+        <div class ="form-group">
+            @Html.CheckBoxFor(model => model.SundayClickedBool )
+            Sunday
+            <br />
+            @Html.CheckBoxFor(model => model.MondayClickedBool)
+            Monday
+            <br />
+            @Html.CheckBoxFor(model => model.TuesdayClickedBool)
+            Tuesday
+            <br />
+            @Html.CheckBoxFor(model => model.WednesdayClickedBool)
+            Wednesday
+            <br />
+            @Html.CheckBoxFor(model => model.ThursdayClickedBool)
+            Thursday
+            <br />
+            @Html.CheckBoxFor(model => model.FridayClickedBool)
+            Friday
+            <br />
+            @Html.CheckBoxFor(model => model.SaturdayClickedBool)
+            Saturday
+            <br />
+            @Html.CheckBoxFor(model => model.EverydayClickedBool)
+            Daily
+        </div>
+    </div>
+
+
+
+    @*<div class="form-group">*@
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    @*</div>*@
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Home")
+    </div>
+}
