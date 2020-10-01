@@ -169,7 +169,19 @@ namespace Mens2020.Mvc.Controllers
         [Authorize]
         public ActionResult AllGoals()
         {
-            return View();
+            
+                using (var db = new Capstone2020Context(nameof(Capstone2020Context)))
+                {
+                    var currentUser = User.Identity.GetUserId();
+
+                    var currentUserAllGoalList = from loggedInUserEvent in db.UserEvents.Include(u => u.User)
+                                                 where currentUser == loggedInUserEvent.UserId
+                                                 select loggedInUserEvent
+                                     ;
+
+                    return View(currentUserAllGoalList.ToList());
+                }
+            
         }
     }
 }

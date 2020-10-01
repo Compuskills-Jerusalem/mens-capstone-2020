@@ -1,7 +1,56 @@
-﻿
+﻿@model IEnumerable<Mens2020.DataSource.Models.UserEvent>
 @{
     ViewBag.Title = "AllGoals";
 }
 
 <h2>AllGoals</h2>
+
+<div class="homepage-goal-container">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.EventTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventText)
+            </th>
+
+
+        </tr>
+    </table>
+
+    @if (Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventText)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Home", new { id = item.UserEventId }, null) |
+                        @Html.ActionLink("Details", "Details", "Home", new { id = item.UserEventId }, null) |
+                        @Html.ActionLink("Delete", "Delete", "Home", new { id = item.UserEventId }, null)
+                    </td>
+                </tr>
+            </table>
+        }
+    }
+    else
+    {
+        <table>
+            <tr>
+                <td>
+                    You have no active goals at the moment
+                </td>
+            </tr>
+        </table>
+
+    }
+
 
