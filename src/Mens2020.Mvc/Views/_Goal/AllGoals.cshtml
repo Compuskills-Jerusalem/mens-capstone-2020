@@ -3,9 +3,35 @@
     ViewBag.Title = "AllGoals";
 }
 
+@section scripts{
+    <script>
+        var imageBg = document.getElementById("myImageBg");
+
+        var btn = document.getElementById("imgBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            imageBg .style.display = "block";
+        }
+
+        span.onclick = function() {
+            imageBg .style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == imageBg)
+
+        {
+            imageBg .style.display = "none";
+        }
+        }
+    </script>
+}
+
 <h2>AllGoals</h2>
 
-<div class="homepage-goal-container">
+<div>
     <table>
         <tr>
             <th>
@@ -36,6 +62,7 @@
                         @Html.ActionLink("Edit", "Edit", "Home", new { id = item.UserEventId }, null) |
                         @Html.ActionLink("Details", "Details", "Home", new { id = item.UserEventId }, null) |
                         @Html.ActionLink("Delete", "Delete", "Home", new { id = item.UserEventId }, null)
+                        <button id="imgBtn">Goal Completed</button>
                     </td>
                 </tr>
             </table>
@@ -50,7 +77,14 @@
                 </td>
             </tr>
         </table>
-
     }
 
-
+    <div id="myImageBg" class="imageBg">
+        <div class="imageBg-content">
+            <span class="close">
+                &times;
+            </span>
+            <img src="job well done2.jpg" />
+        </div>
+    </div>
+</div>
